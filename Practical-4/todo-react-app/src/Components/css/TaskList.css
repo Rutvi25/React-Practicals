@@ -1,28 +1,8 @@
-.task {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 0px;
-}
-.task-check[type='checkbox'] {
-  width: 16px;
-  height: 16px;
-  border-radius: 100%;
-  border: 1px solid ;
-  appearance: none;
-  cursor: pointer;
-}
-.task-disable-icon {
-  background-color:  rgb(124, 213, 143);
-  color: white;
-  border: 2px solid  rgb(124, 213, 143);
-  border-radius: 100%;
-  transform: rotate(250deg);
-  height: 18px;
-}
-.task-disable-icon:hover {
-  transform: scale(0.9);
-  cursor: pointer;
-}
-.task-disable {
-  color: rgba(0, 0, 0, 0.186);
+.task-container{
+  height: 360px;
+  margin-top: 15px;
+  overflow: scroll;
+  scrollbar-width: none;
+  color: rgba(0, 0, 0, 0.604);
+  font-size: 15px;
 }

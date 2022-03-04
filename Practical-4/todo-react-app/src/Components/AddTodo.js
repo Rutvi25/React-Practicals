@@ -1,7 +1,8 @@
-import './css/AddTodo.css'
 import React, { Component } from 'react'
 
-export class AddTodo extends Component {
+import './css/AddTodo.css'
+
+class AddTodo extends Component {
   render() {
     return (
       <div className='add-btn-container'>

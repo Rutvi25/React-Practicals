@@ -1,28 +1,27 @@
-import React, {useState} from 'react'
+import React from 'react'
+import Task from './Task'
+
 import './css/TaskList.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faBandcamp} from '@fortawesome/free-brands-svg-icons/faBandcamp'
-function TaskList(props) {
-  const [taskChecked, setTaskChecked] = useState(false)  
-  function changeStatus() {
-    setTaskChecked(!taskChecked);
+
+function TaskList() {
+  const tasks = [
+    {id: 1, title: 'Buy new sweatshirt'},
+    {id: 2, title: 'Begin Promotional Phase'},
+    {id: 3, title: 'Read an article'},
+    {id: 4, title: 'Try not to fall asleep'},
+    {id: 5, title: 'Watch \'Sherlock\''},
+    {id: 6, title: 'Begin QA for the product'},
+    {id: 7, title: 'Go for a walk'},
+  ];
+  return (
+    <div className='task-container'>
+      {tasks.map((task) => {
+        return(
+          <Task key={task.id} title={task.title}/>
+        )
+      })}
+    </div>
+  );
   }
-  if(taskChecked) {
-    return(
-      <div className='task'>
-          <div className={taskChecked? 'task-disable':''}>{props.title}</div> 
-          <FontAwesomeIcon icon={faBandcamp} className='task-disable-icon' onClick={changeStatus}/>
-      </div> 
-    )
-  }
-  else{
-    return(
-      <div className='task'>
-        <div>{props.title}</div> 
-        <input onClick={changeStatus} type={'checkbox'} className='task-check' defaultChecked={false}/>
-      </div> 
-    )
-  }
-}
 
 export default TaskList

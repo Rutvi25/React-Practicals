@@ -1,10 +1,11 @@
 import React from 'react'
+
 import './css/TodoDate.css'
 
 const TodoDate = () => {
   const currentDate = new Date();
   const date = (currentDate.getDate() < 10 ? '0' : '') + currentDate.getDate();
-  const month = currentDate.toLocaleString('en-us', { month: 'short' });
+  const month = currentDate.toLocaleString('en-us', { month: 'short' }).toUpperCase();
   const year = currentDate.getFullYear()
   const weekday = currentDate.toLocaleDateString('en-US', { weekday: 'long' }).toUpperCase()
   return (
@@ -12,7 +13,7 @@ const TodoDate = () => {
       {/* Date, Month & Year */}
       <div className='date-container'>
         <div className='date'>{date}</div>
-        <div className='month'>
+        <div className='month-year'>
           <span><b>{month}</b></span>         
           <span>{year}</span>
         </div>
