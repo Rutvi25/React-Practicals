@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import './css/AddTodo.css'
+import './AddTodo.css'
 
 class AddTodo extends Component {
   render() {

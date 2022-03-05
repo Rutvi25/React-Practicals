@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './css/TodoDate.css'
+import './TodoDate.css'
 
 const TodoDate = () => {
   const currentDate = new Date();

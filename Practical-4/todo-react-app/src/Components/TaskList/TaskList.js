@@ -1,7 +1,7 @@
 import React from 'react'
-import Task from './Task'
+import Task from '../UserTask/UserTask'
 
-import './css/TaskList.css'
+import './TaskList.css'
 
 function TaskList() {
   const tasks = [

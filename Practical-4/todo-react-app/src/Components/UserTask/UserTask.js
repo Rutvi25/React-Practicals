@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faBandcamp} from '@fortawesome/free-brands-svg-icons/faBandcamp'
 
-import './css/Task.css'
+import './UserTask.css'
 
 function TaskList(props) {
   const [taskCompleted, setTaskCompleted] = useState(false)  
@@ -11,15 +11,13 @@ function TaskList(props) {
   }
   let checkBox;
   if(taskCompleted) {
-    checkBox = <FontAwesomeIcon 
-                  icon={faBandcamp} 
+    checkBox = <FontAwesomeIcon icon={faBandcamp} 
                   className='task-complete-icon' 
                   onClick={changeStatus}
                 />
   }
   else {
-    checkBox = <input 
-                  type={'checkbox'}
+    checkBox = <input type={'checkbox'} 
                   onClick={changeStatus}  
                   className='task-checkbox' 
                   defaultChecked={false}
