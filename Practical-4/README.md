@@ -1,4 +1,3 @@
 # React-Practicals
 Practical-4
-
-![Screenshot from 2022-03-04 11-30-49](https://user-images.githubusercontent.com/97082690/156708499-0dc96b69-1055-426e-a81e-38620a9c8228.png)
+![Screenshot from 2022-03-04 16-37-47](https://user-images.githubusercontent.com/97082690/156752645-6ac9613c-08dd-4ce1-ba14-e914d5bb0541.png)
