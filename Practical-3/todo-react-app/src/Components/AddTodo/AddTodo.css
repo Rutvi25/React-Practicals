@@ -23,3 +23,8 @@
 .add-todo-button:active {
   transform: scale(0.9);
 }
+.add-todo-form {
+  display: flex;
+  margin-top: 15px;
+  justify-content: space-between;
+}
