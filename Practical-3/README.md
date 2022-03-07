@@ -1,2 +1,2 @@
 # React-Practicals
-practical-3
+Practical-3
