@@ -8,7 +8,6 @@
 }
 .todo-list {
   height: 450px;
-  justify-content: center;
   background-color: #f4f4f4;
   box-shadow: 5px 5px 15px -3px rgba(0, 0, 0, 0.5);
   padding: 30px 40px;
