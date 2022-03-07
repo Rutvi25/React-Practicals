@@ -6,19 +6,19 @@ import './UserTask.css'
 
 function TaskList(props) {
   const [taskCompleted, setTaskCompleted] = useState(false)  
-  function changeStatus() {
+  function changeTaskCompleteStatus() {
     setTaskCompleted(!taskCompleted);
   }
   let checkBox;
   if(taskCompleted) {
     checkBox = <FontAwesomeIcon icon={faBandcamp} 
                   className='task-complete-icon' 
-                  onClick={changeStatus}
+                  onClick={changeTaskCompleteStatus}
                 />
   }
   else {
     checkBox = <input type={'checkbox'} 
-                  onClick={changeStatus}  
+                  onClick={changeTaskCompleteStatus}  
                   className='task-checkbox' 
                   defaultChecked={false}
                 />
