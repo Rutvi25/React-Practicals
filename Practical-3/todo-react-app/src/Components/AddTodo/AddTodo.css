@@ -1,4 +1,13 @@
-.add-btn-container {
+.task-container {
+  height: 360px;
+  margin-top: 15px;
+  overflow: scroll;
+  scrollbar-width: none;
+  color: rgba(0, 0, 0, 0.604);
+  font-size: 15px;
+}
+
+.add-todo-btn-container {
   display: flex;
   justify-content: center;
   bottom: -25px;
@@ -27,4 +36,18 @@
   display: flex;
   margin-top: 15px;
   justify-content: space-between;
+}
+.add-todo-submit {
+  color: rgb(0, 128, 0);
+  height: 20px;
+  cursor: pointer;
+}
+.add-todo-cancel {
+  color: rgb(255, 0, 0);
+  height: 20px;
+  cursor: pointer;
+}
+.add-todo-input {
+  width: 180px;
+  border-radius: 3px;
 }
