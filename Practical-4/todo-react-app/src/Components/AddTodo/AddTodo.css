@@ -1,0 +1,25 @@
+.add-todo-btn-container {
+  display: flex;
+  justify-content: center;
+  bottom: -25px;
+  position: relative;
+}
+.add-todo-button {
+  background-color: rgb(124, 213, 143);
+  font-size: 30px;
+  color: rgba(0, 0, 0, 0.426);
+  text-align: center;
+  border: 1px ;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+.add-todo-button:hover {
+  color: rgba(0, 0, 0, 0.720);
+  border: 1px solid;
+}
+.add-todo-button:active {
+  transform: scale(0.9);
+}
