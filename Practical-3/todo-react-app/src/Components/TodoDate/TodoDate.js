@@ -8,6 +8,8 @@ const TodoDate = () => {
   const month = currentDate.toLocaleString('en-us', { month: 'short' }).toUpperCase();
   const year = currentDate.getFullYear()
   const weekday = currentDate.toLocaleDateString('en-US', { weekday: 'long' }).toUpperCase()
+  localStorage.setItem('presentDate', (currentDate.toLocaleDateString()))
+
   return (
     <div className='todo-date-container'>
       {/* Date, Month & Year */}

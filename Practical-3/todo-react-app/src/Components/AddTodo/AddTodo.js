@@ -90,7 +90,7 @@ function AddTodo() {
       {displayTaskList = todoListItems.map((task, id) => {
         console.log(id, task)
         return(
-          <UserTask key={id} title={task}/>  
+          <UserTask key={id} id={id} title={task}/>  
         )
       })}   
     </div> 
