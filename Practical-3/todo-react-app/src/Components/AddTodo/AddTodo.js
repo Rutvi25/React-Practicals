@@ -47,7 +47,8 @@ function AddTodo() {
     showForm = 
       <div className='add-todo-form'>
           <input 
-            autoFocus type='text' 
+            autoFocus 
+            type='text' 
             className='add-todo-input' 
             onKeyDown={handleKeyPress} 
             value={taskTitle} 

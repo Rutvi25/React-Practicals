@@ -6,12 +6,12 @@ import './UserTask.css'
 
 function UserTask(props) {
   const {title, id} = props
-  const [taskCompleted, setTaskCompleted] = useState(localStorage.getItem(id))  
+  let localStorageTaskStatus = localStorage.getItem(id)
+  const [taskCompleted, setTaskCompleted] = useState(localStorageTaskStatus)  
   function changeTaskCompleteStatus() {
     setTaskCompleted(!taskCompleted);
     console.log(taskCompleted)
-    let localStatus = localStorage.getItem(id)
-    if (localStatus === "true")
+    if (localStorageTaskStatus === "true")
       localStorage.removeItem(id)
     else
       localStorage.setItem(id, true)
