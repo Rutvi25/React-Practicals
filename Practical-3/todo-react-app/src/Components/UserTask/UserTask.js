@@ -10,7 +10,6 @@ function UserTask(props) {
   const [taskCompleted, setTaskCompleted] = useState(localStorageTaskStatus)  
   function changeTaskCompleteStatus() {
     setTaskCompleted(!taskCompleted);
-    console.log(taskCompleted)
     if (localStorageTaskStatus === "true")
       localStorage.removeItem(id)
     else

@@ -3,21 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faSquareCheck, faTimesSquare} from '@fortawesome/free-solid-svg-icons';
 
 import './AddTodo.css'
-import UserTask from '../UserTask/UserTask';
-import EmptyList from '../EmptyList/EmptyList'
 
-function AddTodo() {
+function AddTodo(props) {
+  const { todoListItems, setTodoListItems } = props
   const [displayAddTodoForm, setDisplayAddTodoForm] = useState(false)
   const [taskTitle, setTaskTitle] = useState('')
-  const [todoListItems, setTodoListItems] = useState(() => {
-    const todoList = localStorage.getItem('todoList')
-    if(todoList) {
-      return JSON.parse(todoList)
-    }
-    else {
-      return [];
-    }
-  })
+
   // for adding new task
   const addNewTask = () => {
     if(!taskTitle){
@@ -81,30 +72,11 @@ function AddTodo() {
         </button>
       </div>
   }
-  // error handling for empty list
-  let displayTaskList;
-  if(todoListItems.length === 0) {
-    displayTaskList = <EmptyList />
-  }
-  else {
-    <div>
-      {displayTaskList = todoListItems.map((task, id) => {
-        console.log(id, task)
-        return(
-          <UserTask key={id} id={id} title={task}/>  
-        )
-      })}   
-    </div> 
-  }
-
   return (
     <>
-      <div className='task-container'>
-        {displayTaskList}
-      </div>
-      <div>
+      <>
         {showForm}
-      </div>
+      </>
     </>
   )
 }

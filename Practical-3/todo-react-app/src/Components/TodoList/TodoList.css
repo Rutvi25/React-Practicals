@@ -1,0 +1,7 @@
+.task-container {
+  height: 360px;
+  margin-top: 15px;
+  overflow: auto;
+  color: rgba(0, 0, 0, 0.604);
+  font-size: 15px;
+}
