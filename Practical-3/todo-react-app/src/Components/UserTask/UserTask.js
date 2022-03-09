@@ -34,7 +34,7 @@ function UserTask(props) {
   }
   return(
     <div className='task'>
-      <div className={taskCompleted ? 'task-complete' : ''} >
+      <div className={taskCompleted ? 'task-complete' : 'task-incomplete'} >
         {title}
       </div> 
       {checkBox}

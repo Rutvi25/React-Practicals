@@ -25,4 +25,12 @@
 }
 .task-complete {
   color: rgba(0, 0, 0, 0.186);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 220px;
+}
+.task-incomplete {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 220px;
 }
