@@ -11,7 +11,7 @@ function AddTodo(props) {
 
   // for adding new task
   const addNewTask = () => {
-    if(!taskTitle){
+    if(!(taskTitle.trim())){
       alert('Task title can\'t be empty.')
     }
     else {
