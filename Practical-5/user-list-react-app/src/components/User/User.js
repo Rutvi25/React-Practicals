@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Lock, Trash2 } from 'react-feather'
 
 import './User.css'
 
 function User(props) {
-  const {id, email, first_name, last_name, avatar } = props
+  const {id, email, first_name, last_name, avatar, isHovering, setIsHovering } = props
   let userStatus, userAccess, icon;
-  const [isHovering, setIsHovering] = useState(false)
   
   if(id === 1) {
     userStatus = <div className='owner-status'>Active</div>
@@ -27,7 +26,6 @@ function User(props) {
 
   function handleMouseHovering() {
     setIsHovering(!isHovering)
-    console.log(isHovering, id)
   }
 
   return (

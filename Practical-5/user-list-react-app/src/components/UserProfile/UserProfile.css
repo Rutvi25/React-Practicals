@@ -1,7 +1,7 @@
 .user-profile-container {
-  margin-top: 100px;
+  margin-top: 70px;
   margin-left: 20px;
-  background: whitesmoke;
+  background: rgb(245, 245, 245);
   padding: 35px;
   border: 1px;
   box-shadow: 5px 5px 10px -7px;
@@ -32,7 +32,7 @@
 .user-profile-status {
   font-size: 18px;
   color: white;
-  background-color: orange;
+  background-color: rgb(255, 165, 0);
   padding: 8px;
   border: 1px;
   border-radius: 5px;

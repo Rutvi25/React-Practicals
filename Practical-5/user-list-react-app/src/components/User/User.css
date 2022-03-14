@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 10px;
+  width: 720px;
 }
 .user-info {
   display: flex;
@@ -30,7 +31,7 @@
   color: rgba(0, 0, 0, 0.487);
 }
 .user-status select, .user-access select{
-  background-color: whitesmoke;
+  background-color: rgb(245, 245, 245);
   border: none;
   color: rgba(0, 0, 0, 0.433);
   font-size: 15px;
@@ -43,7 +44,7 @@
   color: rgba(0, 0, 0, 0.433);
 }
 .owner-status {
-  color: green;
+  color: rgb(0, 128, 0);
 }
 .icon {
   color: rgba(0, 0, 0, 0.487);

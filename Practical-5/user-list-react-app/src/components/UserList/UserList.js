@@ -1,8 +1,10 @@
 import React from 'react'
+import EmptyList from '../EmptyList/EmptyList'
 import Title from '../Title/Title'
 import User from '../User/User'
 
-function UserList() {
+function UserList(props) {
+  const {isHovering, setIsHovering } = props
   const userDetailsList = [
     {"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},
     {"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},
@@ -16,22 +18,28 @@ function UserList() {
     {"id":10,"email":"eve.holt@reqres.in","first_name":"Eve","last_name":"Holt","avatar":"https://reqres.in/img/faces/4-image.jpg"},
     {"id":11,"email":"charles.morris@reqres.in","first_name":"Charles","last_name":"Morris","avatar":"https://reqres.in/img/faces/5-image.jpg"},
     {"id":12,"email":"tracey.ramos@reqres.in","first_name":"Tracey","last_name":"Ramos","avatar":"https://reqres.in/img/faces/6-image.jpg"}
-  
   ]
+  let displayList;
+  if(userDetailsList.length === 0) {
+    displayList = <EmptyList />
+  }
+  else {
+    displayList = userDetailsList.map((user) => {
+      const { id, email, first_name, last_name, avatar } = user
+      return(
+        <User 
+          isHovering={isHovering} setIsHovering={setIsHovering} 
+          key={id} id={id} email={email} first_name={first_name} last_name={last_name} avatar={avatar}
+        />
+      )
+    })
+  }
   return (
     <>
-    <Title />
-    <div className='user-list-container'>
-      {
-        userDetailsList.map((user) => {
-          const { id, email, first_name, last_name, avatar } = user
-          console.log(id, email)
-          return(
-            <User key={id} id={id} email={email} first_name={first_name} last_name={last_name} avatar={avatar}/>
-          )
-        })
-      }
-    </div>
+      {displayList.length ? <Title /> : ''}
+      <div className='user-list-container'>
+        {displayList}
+      </div>
     </>
     
   )
