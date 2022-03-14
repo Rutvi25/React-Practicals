@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  height: 100vh;
   display: flex;
   justify-content: center;
   background-color: lightgrey;
@@ -20,6 +19,5 @@
   width: 750px;
 }
 .user-profile {
-  width: 25%;
-  left: 100px;
+  width: 200px;
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Lock, Trash2 } from 'react-feather'
 
 import './User.css'
@@ -6,11 +6,12 @@ import './User.css'
 function User(props) {
   const {id, email, first_name, last_name, avatar } = props
   let userStatus, userAccess, icon;
+  const [isHovering, setIsHovering] = useState(false)
+  
   if(id === 1) {
     userStatus = <div className='owner-status'>Active</div>
     userAccess = <div>Owner</div>
     icon = <Lock size={20}/>
-
   }
   else {
     userStatus = <select id="status" name="status">
@@ -24,8 +25,13 @@ function User(props) {
     icon = <Trash2 size={20}/>
   }
 
+  function handleMouseHovering() {
+    setIsHovering(!isHovering)
+    console.log(isHovering, id)
+  }
+
   return (
-    <div className='user-container'>
+    <div className='user-container' onMouseOver={handleMouseHovering}>
       <div className='user-info'>
         <div className='user-avatar'>
           <img src={avatar} alt='user-avatar'/>
