@@ -1,34 +1,35 @@
 import React from 'react'
 
 import EmptyList from '../EmptyList/EmptyList'
+import userDetailsList from '../../userDetailsList.json'
 import Title from '../Title/Title'
 import User from '../User/User'
 
 function UserList(props) {
-  const {isHovering, setIsHovering, userDetailsList, setData } = props
+  const { setIsHovering, setData } = props
   let displayList;
   if(userDetailsList.length === 0) {
     displayList = <EmptyList />
   }
   else {
     displayList = userDetailsList.map((user) => {
-      const { id, email, first_name, last_name, avatar } = user
+      const {id} = user
       return(
-        <User 
-          isHovering={isHovering} setIsHovering={setIsHovering} setData={setData}
-          key={id} id={id} email={email} first_name={first_name} last_name={last_name} avatar={avatar}
+        <User key={ id }
+          setIsHovering={ setIsHovering } 
+          setData={ setData }
+          user={ user }
         />
       )
     })
   }
   return (
     <>
-      {displayList.length ? <Title /> : ''}
+      { displayList.length ? <Title /> : '' }
       <div className='user-list-container'>
-        {displayList}
+        { displayList }
       </div>
     </>
-    
   )
 }
 

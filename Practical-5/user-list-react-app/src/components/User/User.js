@@ -4,9 +4,10 @@ import { Lock, Trash2 } from 'react-feather'
 import './User.css'
 
 function User(props) {
-  const {id, email, first_name, last_name, avatar, isHovering, setIsHovering, setData } = props
+  const { user, setIsHovering, setData } = props
+  const { id, email, first_name, last_name, avatar } =user
   let userStatus, userAccess, icon;
-  
+
   if(id === 1) {
     userStatus = <div className='owner-status'>Active</div>
     userAccess = <div>Owner</div>
@@ -24,30 +25,34 @@ function User(props) {
     icon = <Trash2 size={20}/>
   }
 
-  function handleMouseHovering() {
-    setIsHovering(!isHovering)
-    setData(props)
+  // for hovering effect & displaying card data accordingly
+  function handleMouseEnter() {
+    setIsHovering(true)
+    setData(user)
+  }
+  function handleMouseLeave() {
+    setIsHovering(false)
   }
 
   return (
-    <div className='user-container' onMouseOver={handleMouseHovering}>
+    <div className='user-container' onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }>
       <div className='user-info'>
         <div className='user-avatar'>
-          <img src={avatar} alt='user-avatar'/>
+          <img src={ avatar } alt='user-avatar'/>
         </div>
         <div className='user-details'>
-          <div className='user-name'>{first_name} {last_name}</div>
-          <div className='user-email'>{email}</div>
+          <div className='user-name'>{ first_name } { last_name }</div>
+          <div className='user-email'>{ email }</div>
         </div>
       </div>
       <div className='user-status'>
-        {userStatus}
+        { userStatus }
       </div>
       <div className='user-access'>
-        {userAccess}
+        { userAccess }
       </div>
       <div className='icon'>
-        {icon}
+        { icon }
       </div>
     </div>
   )
