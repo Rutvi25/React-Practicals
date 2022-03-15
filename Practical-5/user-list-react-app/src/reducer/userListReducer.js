@@ -16,6 +16,12 @@ const initialData = {
 }
 const userListReducers = (state = initialData, action) => {
   switch (action.type) {
+    case 'REMOVE_USER':
+      const newList = state.userDetails.filter((user) => action.id !== user.id)
+      return {
+        ...state,
+        userDetails: newList
+      }
     default: return state
   }
 }
