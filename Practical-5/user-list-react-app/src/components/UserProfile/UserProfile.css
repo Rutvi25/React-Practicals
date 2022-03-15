@@ -6,7 +6,7 @@
   border: 1px;
   box-shadow: 5px 5px 10px -7px;
   border-radius: 25px;
-  width: 300px;
+  width: 280px;
   font-weight: 500;
 }
 .user-profile-avatar img {
@@ -55,6 +55,7 @@
 }
 .usage {
   width: 60%;
+  background-color: orange;
 }
 .unused {
   width: 40%;

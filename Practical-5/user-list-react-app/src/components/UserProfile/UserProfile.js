@@ -17,7 +17,7 @@ function UserProfile(props) {
       <div className='user-plan-usage'>Plan Uses</div> 
       {/*Progress Bar*/}
       <div className="progress">
-        <div className="progress-bar progress-bar-warning usage" role="progressbar"></div>
+        <div className="progress-bar usage" role="progressbar"></div>
         <div className="progress-bar unused" role="progressbar"></div>
       </div>
       <div className='clicks'>

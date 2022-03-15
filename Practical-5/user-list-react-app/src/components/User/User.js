@@ -35,6 +35,7 @@ function User(props) {
   }
 
   return (
+    <>
     <div className='user-container' onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }>
       <div className='user-info'>
         <div className='user-avatar'>
@@ -44,7 +45,7 @@ function User(props) {
           <div className='user-name'>{ first_name } { last_name }</div>
           <div className='user-email'>{ email }</div>
         </div>
-      </div>
+      </div>  
       <div className='user-status'>
         { userStatus }
       </div>
@@ -55,6 +56,29 @@ function User(props) {
         { icon }
       </div>
     </div>
+    <div className='user-sm-container' onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }>
+      <div className='user-info'>
+        <div className='user-avatar'>
+          <img src={ avatar } alt='user-avatar'/>
+        </div>
+        <div className='user-details'>
+          <div className='user-name'>{ first_name } { last_name }</div>
+          <div className='user-email'>{ email }</div>
+        </div>
+      </div>  
+      <div className='other-info'>
+        <div className='user-status'>
+          { userStatus }
+        </div>
+        <div className='user-access'>
+          { userAccess }
+        </div>
+        <div className='icon'>
+          { icon }
+        </div>
+      </div>
+  </div>
+  </>
   )
 }
 

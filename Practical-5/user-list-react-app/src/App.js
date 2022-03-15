@@ -10,7 +10,7 @@ function App() {
   const [data, setData] = useState()
   
   return (
-    <div className='App'>
+    <div className='App container-fluid'>
       <div className='user-list-main-container'>
         <div className='user-list'>
           <UserList 

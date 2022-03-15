@@ -11,3 +11,8 @@
 .status {
   margin-left: 70px;
 }
+@media screen and (max-width: 850px) {
+  .title {
+    display: none;
+  }
+}
