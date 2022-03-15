@@ -6,6 +6,7 @@
   color: rgba(0, 0, 0, 0.645);
   font-weight: 600;
   justify-content: space-evenly;
+  width: 720px;
 }
 .status {
   margin-left: 70px;

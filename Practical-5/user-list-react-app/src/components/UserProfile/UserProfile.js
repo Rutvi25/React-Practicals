@@ -2,14 +2,16 @@ import React from 'react'
 
 import './UserProfile.css'
 
-function UserProfile() {
+function UserProfile(props) {
+  const { data } = props
+  const { first_name, last_name, email, avatar} = data
   return (
     <div className='user-profile-container'>
       <div className='user-profile-avatar'>
-        <img src='https://reqres.in/img/faces/1-image.jpg' alt='user-profile-avatar'/>
+        <img src={avatar} alt='user-profile-avatar'/>
       </div>
-      <div className='user-profile-name'>John Doe</div>
-      <div className='user-profile-email'>john@gmail.com</div>
+      <div className='user-profile-name'>{first_name} {last_name}</div>
+      <div className='user-profile-email'>{email}</div>
       <div className='user-plan'>Your Plan: Standard</div>
       <div className='user-profile-status'>Active User</div>
       <div className='user-plan-usage'>Plan Uses</div> 

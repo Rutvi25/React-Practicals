@@ -1,10 +1,11 @@
 import React from 'react'
+
 import EmptyList from '../EmptyList/EmptyList'
 import Title from '../Title/Title'
 import User from '../User/User'
 
 function UserList(props) {
-  const {isHovering, setIsHovering, userDetailsList } = props
+  const {isHovering, setIsHovering, userDetailsList, setData } = props
   let displayList;
   if(userDetailsList.length === 0) {
     displayList = <EmptyList />
@@ -14,7 +15,7 @@ function UserList(props) {
       const { id, email, first_name, last_name, avatar } = user
       return(
         <User 
-          isHovering={isHovering} setIsHovering={setIsHovering} 
+          isHovering={isHovering} setIsHovering={setIsHovering} setData={setData}
           key={id} id={id} email={email} first_name={first_name} last_name={last_name} avatar={avatar}
         />
       )
