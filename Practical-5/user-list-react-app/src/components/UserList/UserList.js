@@ -1,25 +1,26 @@
-import React from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 import EmptyList from '../EmptyList/EmptyList'
-import userDetailsList from '../../userDetailsList.json'
 import Title from '../Title/Title'
 import User from '../User/User'
 
 function UserList(props) {
+  const userDetails = useSelector((state) => state.userListReducer.userDetails)
   const { setIsHovering, setData } = props
   let displayList;
-  if(userDetailsList.length === 0) {
+  if(userDetails.length === 0) {
     displayList = <EmptyList />
   }
   else {
-    displayList = userDetailsList.map((user) => {
+    displayList = userDetails?.map((user) => {
       const {id} = user
       return(
         <User key={ id }
           setIsHovering={ setIsHovering } 
           setData={ setData }
           user={ user }
-        />
+        />        
       )
     })
   }
