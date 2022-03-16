@@ -13,16 +13,16 @@ function App() {
   // const [data, setData] = useState()
   // const [userStatus, setUserStatus]
   const userProfileData = useSelector((state) => state.userListReducer.userProfile)
-  console.log(userProfileData)
+  //console.log(userProfileData)
   return (
     <div className='App container-fluid'>
       <div className='user-list-main-container'>
-        <div className='user-list'>
+        <div className={userProfileData.length === 0 ? 'user-list' : 'user-list user-list-sm'}>
           <UserList />
         </div>
         <div className='user-profile'>
           {
-            userProfileData.length!==0 ? <UserProfile userProfileData={userProfileData} /> : ''
+            userProfileData.length !==0 ? <UserProfile userProfileData={userProfileData} /> : ''
           }
         </div>
       </div>

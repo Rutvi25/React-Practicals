@@ -15,8 +15,8 @@ function UserProfile(props) {
       <div className='user-profile-status'>Active User</div>
       <div className='user-plan-usage'>Plan Uses</div> 
       {/*Progress Bar*/}
-      <div id="progressBar">
-        <div id="usage" style={{'width': usage+'%'}}></div>
+      <div className='progressBar'>
+        <div className='usage' style={{'width': usage+'%'}}></div>
       </div>
       <div className='clicks'>
         <div className='clicks-reviewed'>

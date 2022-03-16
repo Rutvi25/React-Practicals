@@ -23,8 +23,8 @@ const userListReducers = (state = initialData, action) => {
         userProfile: []
       }
     case 'MOUSE_ENTER':
-      console.log('mouse enter')
-      console.log(...state.userProfile)
+      // console.log('mouse enter')
+      // console.log(...state.userProfile)
       return {
         ...state,
         userProfile: [
@@ -34,12 +34,12 @@ const userListReducers = (state = initialData, action) => {
         ]
       }
     case 'MOUSE_LEAVE':
-      console.log('mouse leave')
-    console.log(...state.userProfile)
-    return {
-      ...state,
-      userProfile: []
-    }
+      // console.log('mouse leave')
+      // console.log(...state.userProfile)
+      return {
+        ...state,
+        userProfile: []
+      }
     default: return state
   }
 }
