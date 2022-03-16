@@ -35,7 +35,7 @@ function User(props) {
   }
 
   return (
-    <>
+  <>
     <div className='user-container' onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }>
       <div className='user-info'>
         <div className='user-avatar'>
@@ -52,10 +52,11 @@ function User(props) {
       <div className='user-access'>
         { userAccess }
       </div>
-      <div className='icon'>
+      <div className='icon' onClick={console.log('clicked')}>
         { icon }
       </div>
     </div>
+    {/* For small devices */}
     <div className='user-sm-container' onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }>
       <div className='user-info'>
         <div className='user-avatar'>
@@ -73,11 +74,11 @@ function User(props) {
         <div className='user-access'>
           { userAccess }
         </div>
-        <div className='icon'>
+        <div className='icon' onClick={console.log('clicked')}>
           { icon }
         </div>
       </div>
-  </div>
+    </div>
   </>
   )
 }

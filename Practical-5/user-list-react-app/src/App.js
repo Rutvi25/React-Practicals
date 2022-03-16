@@ -14,9 +14,9 @@ function App() {
       <div className='user-list-main-container'>
         <div className='user-list'>
           <UserList 
-            isHovering={isHovering} 
+            isHovering={ isHovering } 
             setIsHovering={ setIsHovering } 
-            data={data} 
+            data={ data } 
             setData={ setData }
           />
         </div>
