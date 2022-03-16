@@ -23,3 +23,11 @@ export const mouseLeave = (user) => {
     }
   }
 }
+export const updateUserStatus = (user) => {
+  return {
+    type: 'UPDATE_STATUS',
+    payload: {
+      user
+    }
+  }
+}

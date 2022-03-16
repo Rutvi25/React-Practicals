@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import UserList from './components/UserList/UserList'
 import UserProfile from './components/UserProfile/UserProfile';
@@ -13,15 +13,17 @@ function App() {
   // const [data, setData] = useState()
   // const [isUserActive, setUserActive] = useState(false)
   const userProfileData = useSelector((state) => state.userListReducer.userProfile)
+  const [userStatus, setUserStatus] = useState('Inactive')
+  
   return (
     <div className='App container-fluid'>
       <div className='user-list-main-container'>
         <div className={userProfileData.length === 0 ? 'user-list' : 'user-list user-list-sm'}>
-          <UserList />
+          <UserList userStatus={userStatus} setUserStatus={setUserStatus}/>
         </div>
         <div className='user-profile'>
           {
-            userProfileData.length !==0 ? <UserProfile userProfileData={userProfileData} /> : ''
+            userProfileData.length !==0 ? <UserProfile userProfileData={userProfileData} userStatus={userStatus}/> : ''
           }
         </div>
       </div>

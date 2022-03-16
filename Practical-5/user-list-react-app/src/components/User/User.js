@@ -2,26 +2,36 @@ import React from 'react'
 import { Lock, Trash2 } from 'react-feather'
 import { useDispatch } from 'react-redux'
 import { mouseEnter, mouseLeave, removeUser } from '../../action'
+import { updateUserStatus } from '../../action'
 
 import './User.css'
 
 function User(props) {
-  const { user } = props
+  const { user, userStatus, setUserStatus } = props
   const { id, email, first_name, last_name, avatar} = user
-  let userStatus, userAccess, icon;
+  let status, userAccess, icon;
   const dispatch = useDispatch()
   // function changeStatus() {
   //   setUserActive(!isUserActive)
   //   console.log(isUserActive)
   // }
+
+  // function updateUserStatus() {
+  //   if(userStatus === 'Active') {
+  //     setUserStatus('Inactive')
+  //   }
+  //   else {
+  //     setUserStatus('Active')
+  //   }
+  // }
   
   if(id === 1) {
-    userStatus = <div className='owner-status'>Active</div>
+    status = <div className='owner-status'>Active</div>
     userAccess = <div>Owner</div>
     icon = <Lock size={20}  onClick={() => alert('Owner can\'t be removed.')}/>
   }
   else {
-    userStatus = <select id="status" name="status">
+    status = <select id="status" name="status" onChange={() => (dispatch(updateUserStatus(user)))}>
                   <option value="Inactive">Inactive</option>
                   <option value="Active">Active</option>
                 </select>
@@ -58,7 +68,7 @@ function User(props) {
         </div>
       </div>  
       <div className='user-status'>
-        { userStatus }
+        { status }
       </div>
       <div className='user-access'>
         { userAccess }
