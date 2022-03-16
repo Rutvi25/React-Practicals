@@ -10,20 +10,20 @@ function User(props) {
   const { id, email, first_name, last_name, avatar} = user
   let userStatus, userAccess, icon;
   const dispatch = useDispatch()
-
+  // function changeStatus() {
+  //   setUserActive(!isUserActive)
+  //   console.log(isUserActive)
+  // }
+  
   if(id === 1) {
     userStatus = <div className='owner-status'>Active</div>
     userAccess = <div>Owner</div>
     icon = <Lock size={20}  onClick={() => alert('Owner can\'t be removed.')}/>
   }
   else {
-    let status='false';
-    function changeStatus() {
-      status=!status
-    }
     userStatus = <select id="status" name="status">
-                  <option value="inactive" onClick={changeStatus}>Inactive</option>
-                  <option value="active" onClick={changeStatus}>Active</option>
+                  <option value="Inactive">Inactive</option>
+                  <option value="Active">Active</option>
                 </select>
     userAccess = <select id="access" name="access">
                   <option value="manager">Manager</option>

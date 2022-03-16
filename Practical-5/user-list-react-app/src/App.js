@@ -11,9 +11,8 @@ function App() {
   // const [isHovering, setIsHovering] = useState(false)
   // for user profile card
   // const [data, setData] = useState()
-  // const [userStatus, setUserStatus]
+  // const [isUserActive, setUserActive] = useState(false)
   const userProfileData = useSelector((state) => state.userListReducer.userProfile)
-  //console.log(userProfileData)
   return (
     <div className='App container-fluid'>
       <div className='user-list-main-container'>

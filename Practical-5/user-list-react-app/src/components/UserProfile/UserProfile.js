@@ -21,7 +21,7 @@ function UserProfile(props) {
       <div className='clicks'>
         <div className='clicks-reviewed'>
           <div className='click-reviewed-count'>{ clicksReviewed }</div>
-          <div className='click-reviewed-text'>clicks reviewed</div>
+          <div className='click-reviewed-text'>Clicks reviewed</div>
         </div>
         <div className='separator'></div>
         <div className='monthly-clicks'>
