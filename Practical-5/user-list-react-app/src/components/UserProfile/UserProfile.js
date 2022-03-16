@@ -1,10 +1,9 @@
-import React from 'react'
-
 import './UserProfile.css'
 
 function UserProfile(props) {
   const { data } = props
-  const { first_name, last_name, email, avatar } = data
+  const { first_name, last_name, email, avatar, monthlyClicks, clicksReviewed } = data
+  let usage = clicksReviewed/monthlyClicks*100
   return (
     <div className='user-profile-container'>
       <div className='user-profile-avatar'>
@@ -16,18 +15,17 @@ function UserProfile(props) {
       <div className='user-profile-status'>Active User</div>
       <div className='user-plan-usage'>Plan Uses</div> 
       {/*Progress Bar*/}
-      <div className="progress">
-        <div className="progress-bar usage" role="progressbar"></div>
-        <div className="progress-bar unused" role="progressbar"></div>
+      <div id="progressBar">
+        <div id="usage" style={{'width': usage+'%'}}></div>
       </div>
       <div className='clicks'>
         <div className='clicks-reviewed'>
-          <div className='click-reviewed-count'>2,450</div>
+          <div className='click-reviewed-count'>{ clicksReviewed }</div>
           <div className='click-reviewed-text'>clicks reviewed</div>
         </div>
         <div className='separator'></div>
         <div className='monthly-clicks'>
-          <div className='monthly-click-count'>5000</div>
+          <div className='monthly-click-count'>{ monthlyClicks }</div>
           <div className='monthly-click-text'>Monthly clicks</div>
         </div>
       </div>

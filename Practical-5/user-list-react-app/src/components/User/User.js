@@ -1,17 +1,20 @@
 import React from 'react'
 import { Lock, Trash2 } from 'react-feather'
+import { useDispatch } from 'react-redux'
+import { hoverUser, removeUser } from '../../action'
 
 import './User.css'
 
 function User(props) {
-  const { user, setIsHovering, setData } = props
-  const { id, email, first_name, last_name, avatar } =user
+  const { user, setData } = props
+  const { id, email, first_name, last_name, avatar, monthlyClicks, clicksReviewed } =user
   let userStatus, userAccess, icon;
+  const dispatch = useDispatch()
 
   if(id === 1) {
     userStatus = <div className='owner-status'>Active</div>
     userAccess = <div>Owner</div>
-    icon = <Lock size={20}/>
+    icon = <Lock size={20}  onClick={() => alert('Owner can\'t be removed.')}/>
   }
   else {
     userStatus = <select id="status" name="status">
@@ -22,22 +25,25 @@ function User(props) {
                   <option value="manager">Manager</option>
                   <option value="read">Read</option>
                 </select>
-    icon = <Trash2 size={20}/>
+    icon = <Trash2 size={20} onClick={() => dispatch(removeUser(id))}/>
   }
 
   // for hovering effect & displaying card data accordingly
   function handleMouseEnter() {
-    setIsHovering(true)
+    dispatch(hoverUser(user))
+    console.log(hoverUser(user))
+    console.log(user)
     setData(user)
   }
   function handleMouseLeave() {
-    setIsHovering(false)
+    dispatch(hoverUser(id))
+    setData()
   }
 
   return (
   <>
-    <div className='user-container' onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }>
-      <div className='user-info'>
+    <div className='user-container' >
+      <div className='user-info' onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }>
         <div className='user-avatar'>
           <img src={ avatar } alt='user-avatar'/>
         </div>
@@ -52,7 +58,7 @@ function User(props) {
       <div className='user-access'>
         { userAccess }
       </div>
-      <div className='icon' onClick={console.log('clicked')}>
+      <div className='icon'>
         { icon }
       </div>
     </div>
@@ -74,7 +80,7 @@ function User(props) {
         <div className='user-access'>
           { userAccess }
         </div>
-        <div className='icon' onClick={console.log('clicked')}>
+        <div className='icon'>
           { icon }
         </div>
       </div>

@@ -17,7 +17,7 @@ function UserList(props) {
       const {id} = user
       return(
         <User key={ id }
-          setIsHovering={ setIsHovering } 
+        //  setIsHovering={ setIsHovering } 
           setData={ setData }
           user={ user }
         />        
