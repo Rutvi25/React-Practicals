@@ -18,9 +18,11 @@ const initialData = {
 const userListReducers = (state = initialData, action) => {
   switch (action.type) {
     case 'REMOVE_USER':
+      let tempList = [...state.userDetails]
+      tempList = tempList.filter((user) => user.id !== action.payload.id) 
       return {
         ...state,
-        userDetails: [...state.userDetails.filter((user) => action.id !== user.id)] 
+        userDetails: tempList
       }
       case 'HOVER_USER':
         return {

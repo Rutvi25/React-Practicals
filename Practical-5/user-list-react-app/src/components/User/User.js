@@ -7,7 +7,7 @@ import './User.css'
 
 function User(props) {
   const { user, setData } = props
-  const { id, email, first_name, last_name, avatar, monthlyClicks, clicksReviewed } =user
+  const { id, email, first_name, last_name, avatar} = user
   let userStatus, userAccess, icon;
   const dispatch = useDispatch()
 
@@ -17,9 +17,13 @@ function User(props) {
     icon = <Lock size={20}  onClick={() => alert('Owner can\'t be removed.')}/>
   }
   else {
+    let status='false';
+    function changeStatus() {
+      status=!status
+    }
     userStatus = <select id="status" name="status">
-                  <option value="inactive">Inactive</option>
-                  <option value="active">Active</option>
+                  <option value="inactive" onClick={changeStatus}>Inactive</option>
+                  <option value="active" onClick={changeStatus}>Active</option>
                 </select>
     userAccess = <select id="access" name="access">
                   <option value="manager">Manager</option>
@@ -63,8 +67,8 @@ function User(props) {
       </div>
     </div>
     {/* For small devices */}
-    <div className='user-sm-container' onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }>
-      <div className='user-info'>
+    <div className='user-sm-container'>
+      <div className='user-info' onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }>
         <div className='user-avatar'>
           <img src={ avatar } alt='user-avatar'/>
         </div>

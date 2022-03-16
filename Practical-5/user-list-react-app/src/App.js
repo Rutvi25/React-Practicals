@@ -11,6 +11,7 @@ function App() {
   // const [isHovering, setIsHovering] = useState(false)
   // for user profile card
   const [data, setData] = useState()
+  // const [userStatus, setUserStatus]
   const userProfileData = useSelector((state) => state.userListReducer.userProfile)
   
   return (
