@@ -1,8 +1,8 @@
 import './UserProfile.css'
 
 function UserProfile(props) {
-  const { data } = props
-  const { first_name, last_name, email, avatar, monthlyClicks, clicksReviewed } = data
+  const { userProfileData } = props
+  const { first_name, last_name, email, avatar, monthlyClicks, clicksReviewed } = userProfileData[0].user
   let usage = clicksReviewed/monthlyClicks*100
   return (
     <div className='user-profile-container'>

@@ -7,7 +7,7 @@ import User from '../User/User'
 
 function UserList(props) {
   const userDetails = useSelector((state) => state.userListReducer.userDetails)
-  const { setData } = props
+  //const { setData } = props
   let displayList;
   if(userDetails.length === 0) {
     displayList = <EmptyList />
@@ -18,7 +18,7 @@ function UserList(props) {
       return(
         <User key={ id }
         //  setIsHovering={ setIsHovering } 
-          setData={ setData }
+          // setData={ setData }
           user={ user }
         />        
       )

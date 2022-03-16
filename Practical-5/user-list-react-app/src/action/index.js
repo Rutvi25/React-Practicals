@@ -7,9 +7,17 @@ export const removeUser = (id) => {
     }
   }
 }
-export const hoverUser = (user) => {
+export const mouseEnter = (user) => {
   return {
-    type: 'HOVER_USER',
+    type: 'MOUSE_ENTER',
+    payload: {
+      user,
+    }
+  }
+}
+export const mouseLeave = (user) => {
+  return {
+    type: 'MOUSE_LEAVE',
     payload: {
       user,
     }

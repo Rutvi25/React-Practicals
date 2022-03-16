@@ -18,16 +18,28 @@ const initialData = {
 const userListReducers = (state = initialData, action) => {
   switch (action.type) {
     case 'REMOVE_USER':
-      let tempList = [...state.userDetails]
-      tempList = tempList.filter((user) => user.id !== action.payload.id) 
+      return {
+        userDetails: [...state.userDetails.filter((user) => user.id!== action.payload.id)],
+        userProfile: []
+      }
+    case 'MOUSE_ENTER':
+      console.log('mouse enter')
+      console.log(...state.userProfile)
       return {
         ...state,
-        userDetails: tempList
+        userProfile: [
+          {
+            user: action.payload.user
+          }
+        ]
       }
-      case 'HOVER_USER':
-        return {
-          ...state,
-        }
+    case 'MOUSE_LEAVE':
+      console.log('mouse leave')
+    console.log(...state.userProfile)
+    return {
+      ...state,
+      userProfile: []
+    }
     default: return state
   }
 }

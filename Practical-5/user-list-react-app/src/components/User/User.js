@@ -1,12 +1,12 @@
 import React from 'react'
 import { Lock, Trash2 } from 'react-feather'
 import { useDispatch } from 'react-redux'
-import { hoverUser, removeUser } from '../../action'
+import { mouseEnter, mouseLeave, removeUser } from '../../action'
 
 import './User.css'
 
 function User(props) {
-  const { user, setData } = props
+  const { user } = props
   const { id, email, first_name, last_name, avatar} = user
   let userStatus, userAccess, icon;
   const dispatch = useDispatch()
@@ -34,14 +34,15 @@ function User(props) {
 
   // for hovering effect & displaying card data accordingly
   function handleMouseEnter() {
-    dispatch(hoverUser(user))
-    console.log(hoverUser(user))
-    console.log(user)
-    setData(user)
+    dispatch(mouseEnter(user))
+    // console.log(dispatch(hoverUser(user)))
+    // console.log(user)
+    // setData(user)
   }
   function handleMouseLeave() {
-    dispatch(hoverUser(id))
-    setData()
+    dispatch(mouseLeave(user))
+    //dispatch(hoverUser(id))
+    //setData()
   }
 
   return (
