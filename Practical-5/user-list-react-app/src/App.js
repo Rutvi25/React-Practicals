@@ -13,17 +13,17 @@ function App() {
   // const [data, setData] = useState()
   // const [isUserActive, setUserActive] = useState(false)
   const userProfileData = useSelector((state) => state.userListReducer.userProfile)
-  const [userStatus, setUserStatus] = useState('Inactive')
+  const [isUserActive, setUserActive] = useState('Inactive')
   
   return (
     <div className='App container-fluid'>
       <div className='user-list-main-container'>
         <div className={userProfileData.length === 0 ? 'user-list' : 'user-list user-list-sm'}>
-          <UserList userStatus={userStatus} setUserStatus={setUserStatus}/>
+          <UserList setUserActive={setUserActive} />
         </div>
         <div className='user-profile'>
           {
-            userProfileData.length !==0 ? <UserProfile userProfileData={userProfileData} userStatus={userStatus}/> : ''
+            userProfileData.length !==0 ? <UserProfile userProfileData={userProfileData} isUserActive={isUserActive}/> : ''
           }
         </div>
       </div>

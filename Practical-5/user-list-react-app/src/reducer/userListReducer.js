@@ -42,9 +42,21 @@ const userListReducers = (state = initialData, action) => {
       }
     case 'UPDATE_STATUS':
       console.log('updatestatus')
-      console.log(action.payload.user)
+      console.log(action.payload.user.id)
+      // let uStatus = action.payload.user.userStatus   
       return{
         ...state,
+        userDetails : [state.userDetails.map((user) => {
+          if(user.id === action.payload.user.id) {
+            return {
+              ...user,
+              userStatus: {...user.userStatus = 'Active' ? 'Inactive' : 'Active'}
+            }
+          }
+          else {
+            return user;            
+          }
+        })]
       }
     default: return state
   }

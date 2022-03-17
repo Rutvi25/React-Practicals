@@ -6,7 +6,7 @@ import Title from '../Title/Title'
 import User from '../User/User'
 
 function UserList(props) {
-  const { userStatus, setUserStatus } = props
+  const { setUserActive } = props
   const userDetails = useSelector((state) => state.userListReducer.userDetails)
   //const { setData } = props
   let displayList;
@@ -18,10 +18,8 @@ function UserList(props) {
       const {id} = user
       return(
         <User key={ id }
-        //  setIsHovering={ setIsHovering } 
-          // setData={ setData }
           user={ user }
-          userStatus={userStatus} setUserStatus={setUserStatus}
+          setUserActive = {setUserActive}
         />        
       )
     })
