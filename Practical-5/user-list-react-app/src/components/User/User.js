@@ -11,21 +11,21 @@ function User(props) {
   const { id, email, first_name, last_name, avatar} = user
   const dispatch = useDispatch()
   // conditional rendering for owner & user
-  let status, userAccess, icon;
+  let userStatus, userAccess, icon;
   if(id === 1) {
-    status = <div className='owner-status'>Active</div>
+    userStatus = <div className='owner-status'>Active</div>
     userAccess = <div>Owner</div>
-    icon = <Lock size={20}  onClick={() => alert('Owner can\'t be removed.')}/>
+    icon = <Lock size={20} onClick={() => alert('Owner can\'t be removed.')}/>
   }
   else {
-    status = <select id="status" name="status" onChange={() => dispatch(changeUserStatus(id))}>
-                  <option value="Inactive">Inactive</option>
-                  <option value="Active">Active</option>
-                </select>
+    userStatus = <select id="status" name="status" onChange={() => dispatch(changeUserStatus(id))}>
+                    <option value="Inactive">Inactive</option>
+                    <option value="Active">Active</option>
+                  </select>
     userAccess = <select id="access" name="access">
-                  <option value="manager">Manager</option>
-                  <option value="read">Read</option>
-                </select>
+                    <option value="manager">Manager</option>
+                    <option value="read">Read</option>
+                  </select>
     icon = <Trash2 size={20} onClick={() => dispatch(removeUser(id))}/>
   }
   // for hovering effect & displaying card data accordingly
@@ -49,7 +49,7 @@ function User(props) {
         </div>
       </div>  
       <div className='user-status'>
-        { status }
+        { userStatus }
       </div>
       <div className='user-access'>
         { userAccess }
@@ -71,7 +71,7 @@ function User(props) {
       </div>  
       <div className='other-info'>
         <div className='user-status'>
-          { status }
+          { userStatus }
         </div>
         <div className='user-access'>
           { userAccess }

@@ -12,17 +12,17 @@ function UserProfile(props) {
       </div>
       <div className='name-with-statusIcon'>
         <div className='user-profile-name'>{ first_name } { last_name }</div>
-        <span className={ id === 1 || isUserActive==='Active' ? 'active-dot' : 'inactive-dot'}></span>
+        <span className={ id === 1 || isUserActive ? 'active-status-icon' : 'inactive-status-icon' }></span>
       </div>
       <div className='user-profile-email'>{ email }</div>
       <div className='user-plan'>Your Plan: Standard</div>
-      {/* <div className='user-profile-status'>{id===1 ? 'Active' : isUserActive? isUserActive : 'Inactive'} User</div> */}
-      <div className='user-profile-status'>{isUserActive? 'Active' : 'Inactive'} User</div>
+      <div className='user-profile-status'>{isUserActive? 'Active' : 'Inactive' } User</div>
       <div className='user-plan-usage'>Plan Uses</div> 
       {/*Progress Bar*/}
       <div className='progressBar'>
         <div className='usage' style={{'width': usage+'%'}}></div>
       </div>
+      {/* Clicks Count */}
       <div className='clicks'>
         <div className='clicks-reviewed'>
           <div className='click-reviewed-count'>{ clicksReviewed }</div>

@@ -23,7 +23,7 @@
   display: flex;
   justify-content: center
 }
-.active-dot, .inactive-dot {
+.active-status-icon, .inactive-status-icon {
   height: 5px;
   width: 5px;
   border-radius: 50%;
