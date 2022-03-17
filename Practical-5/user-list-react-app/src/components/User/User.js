@@ -1,22 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Lock, Trash2 } from 'react-feather'
 import { useDispatch } from 'react-redux'
 
-import { mouseEnter, mouseLeave, removeUser } from '../../action'
+import { changeUserStatus, mouseEnter, mouseLeave, removeUser } from '../../action'
 
 import './User.css'
 
 function User(props) {
-  const { user, setUserActive} = props
+  const { user } = props
   const { id, email, first_name, last_name, avatar} = user
   const dispatch = useDispatch()
-  const [userStatus, setUserStatus] = useState('Active')
-  // function for status change
-  function changeStatus() {
-    userStatus === 'Inactive' ? setUserStatus('Active') : setUserStatus('Inactive')
-    setUserActive(userStatus)
-    console.log(userStatus)
-  }
   // conditional rendering for owner & user
   let status, userAccess, icon;
   if(id === 1) {
@@ -25,7 +18,7 @@ function User(props) {
     icon = <Lock size={20}  onClick={() => alert('Owner can\'t be removed.')}/>
   }
   else {
-    status = <select id="status" name="status" onChange={changeStatus}>
+    status = <select id="status" name="status" onChange={() => dispatch(changeUserStatus(id))}>
                   <option value="Inactive">Inactive</option>
                   <option value="Active">Active</option>
                 </select>
@@ -78,7 +71,7 @@ function User(props) {
       </div>  
       <div className='other-info'>
         <div className='user-status'>
-          { userStatus }
+          { status }
         </div>
         <div className='user-access'>
           { userAccess }

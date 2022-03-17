@@ -5,8 +5,7 @@ import EmptyList from '../EmptyList/EmptyList'
 import Title from '../Title/Title'
 import User from '../User/User'
 
-function UserList(props) {
-  const { setUserActive } = props
+function UserList() {
   const userDetails = useSelector((state) => state.userListReducer.userDetails)
   let displayList;
   if(userDetails.length === 0) {
@@ -18,7 +17,6 @@ function UserList(props) {
       return(
         <User key={ id }
           user={ user }
-          setUserActive = {setUserActive}
         />        
       )
     })

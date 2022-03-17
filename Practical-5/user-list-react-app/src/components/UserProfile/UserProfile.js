@@ -1,10 +1,9 @@
 import './UserProfile.css'
 
 function UserProfile(props) {
-  const { userProfileData, isUserActive } = props
+  const { userProfileData } = props
   const { user } = userProfileData[0]
-  const { id, first_name, last_name, email, avatar, monthlyClicks, clicksReviewed } = user
-  console.log(userProfileData)
+  const { id, first_name, last_name, email, avatar, monthlyClicks, clicksReviewed, isUserActive } = user
   let usage = clicksReviewed/monthlyClicks*100
   return (
     <div className='user-profile-container'>
@@ -17,7 +16,8 @@ function UserProfile(props) {
       </div>
       <div className='user-profile-email'>{ email }</div>
       <div className='user-plan'>Your Plan: Standard</div>
-      <div className='user-profile-status'>{id===1 ? 'Active' : isUserActive} User</div>
+      {/* <div className='user-profile-status'>{id===1 ? 'Active' : isUserActive? isUserActive : 'Inactive'} User</div> */}
+      <div className='user-profile-status'>{isUserActive? 'Active' : 'Inactive'} User</div>
       <div className='user-plan-usage'>Plan Uses</div> 
       {/*Progress Bar*/}
       <div className='progressBar'>
