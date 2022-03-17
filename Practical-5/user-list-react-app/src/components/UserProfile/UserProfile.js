@@ -2,7 +2,8 @@ import './UserProfile.css'
 
 function UserProfile(props) {
   const { userProfileData, isUserActive } = props
-  const { id, first_name, last_name, email, avatar, monthlyClicks, clicksReviewed } = userProfileData[0].user
+  const { user } = userProfileData[0]
+  const { id, first_name, last_name, email, avatar, monthlyClicks, clicksReviewed } = user
   console.log(userProfileData)
   let usage = clicksReviewed/monthlyClicks*100
   return (
@@ -10,7 +11,10 @@ function UserProfile(props) {
       <div className='user-profile-avatar'>
         <img src={ avatar } alt='user-profile-avatar'/>
       </div>
-      <div className='user-profile-name'>{ first_name } { last_name }</div>
+      <div className='name-with-statusIcon'>
+        <div className='user-profile-name'>{ first_name } { last_name }</div>
+        <span className={ id === 1 || isUserActive==='Active' ? 'active-dot' : 'inactive-dot'}></span>
+      </div>
       <div className='user-profile-email'>{ email }</div>
       <div className='user-plan'>Your Plan: Standard</div>
       <div className='user-profile-status'>{id===1 ? 'Active' : isUserActive} User</div>

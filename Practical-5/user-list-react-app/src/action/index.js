@@ -1,4 +1,3 @@
-
 export const removeUser = (id) => {
   return {
     type: 'REMOVE_USER',
@@ -20,14 +19,6 @@ export const mouseLeave = (user) => {
     type: 'MOUSE_LEAVE',
     payload: {
       user,
-    }
-  }
-}
-export const updateUserStatus = (user) => {
-  return {
-    type: 'UPDATE_STATUS',
-    payload: {
-      user
     }
   }
 }

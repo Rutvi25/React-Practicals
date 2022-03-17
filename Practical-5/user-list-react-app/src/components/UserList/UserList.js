@@ -8,7 +8,6 @@ import User from '../User/User'
 function UserList(props) {
   const { setUserActive } = props
   const userDetails = useSelector((state) => state.userListReducer.userDetails)
-  //const { setData } = props
   let displayList;
   if(userDetails.length === 0) {
     displayList = <EmptyList />

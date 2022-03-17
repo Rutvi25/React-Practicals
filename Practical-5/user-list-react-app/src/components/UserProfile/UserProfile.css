@@ -19,6 +19,23 @@
   font-size: 20px;
   color: rgba(0, 0, 0, 0.802);
 }
+.name-with-statusIcon {
+  display: flex;
+  justify-content: center
+}
+.active-dot, .inactive-dot {
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+.inactive-dot {
+  background-color: rgba(0, 0, 0, 0.44);
+}
+.active-dot {
+  background-color: rgb(59, 138, 59);
+}
 .user-profile-email {
   padding: 5px 0;
   font-size: 15px;
@@ -45,7 +62,6 @@
   color: rgba(0, 0, 0, 0.72);
   font-size: 15px;
 }
-
 .progressBar {
   height: 5px;
   width: 100%;

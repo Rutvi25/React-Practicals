@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Lock, Trash2 } from 'react-feather'
 import { useDispatch } from 'react-redux'
+
 import { mouseEnter, mouseLeave, removeUser } from '../../action'
 
 import './User.css'
@@ -8,26 +9,16 @@ import './User.css'
 function User(props) {
   const { user, setUserActive} = props
   const { id, email, first_name, last_name, avatar} = user
-  const [userStatus, setUserStatus] = useState('Active')
-  // console.log(userStatus)
-
-  let status, userAccess, icon;
   const dispatch = useDispatch()
+  const [userStatus, setUserStatus] = useState('Active')
+  // function for status change
   function changeStatus() {
     userStatus === 'Inactive' ? setUserStatus('Active') : setUserStatus('Inactive')
     setUserActive(userStatus)
     console.log(userStatus)
   }
-
-  // function updateUserStatus() {
-  //   if(userStatus === 'Active') {
-  //     setUserStatus('Inactive')
-  //   }
-  //   else {
-  //     setUserStatus('Active')
-  //   }
-  // }
-  
+  // conditional rendering for owner & user
+  let status, userAccess, icon;
   if(id === 1) {
     status = <div className='owner-status'>Active</div>
     userAccess = <div>Owner</div>
@@ -44,18 +35,12 @@ function User(props) {
                 </select>
     icon = <Trash2 size={20} onClick={() => dispatch(removeUser(id))}/>
   }
-
   // for hovering effect & displaying card data accordingly
   function handleMouseEnter() {
     dispatch(mouseEnter(user))
-    // console.log(dispatch(hoverUser(user)))
-    // console.log(user)
-    // setData(user)
   }
   function handleMouseLeave() {
     dispatch(mouseLeave(user))
-    //dispatch(hoverUser(id))
-    //setData()
   }
 
   return (

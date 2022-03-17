@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import UserList from './components/UserList/UserList'
 import UserProfile from './components/UserProfile/UserProfile';
 import './App.css';
-//import { hoverUser } from './action/index';
-import { useSelector } from 'react-redux';
-// import userDetails from './reducer/index';
 
 function App() {
-  // const [isHovering, setIsHovering] = useState(false)
-  // for user profile card
-  // const [data, setData] = useState()
-  // const [isUserActive, setUserActive] = useState(false)
   const userProfileData = useSelector((state) => state.userListReducer.userProfile)
   const [isUserActive, setUserActive] = useState('Inactive')
   
