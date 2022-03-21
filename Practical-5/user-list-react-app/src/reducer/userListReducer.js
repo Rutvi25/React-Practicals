@@ -13,7 +13,7 @@ const initialState = {
     {"id":11,"email":"charles.morris@reqres.in","first_name":"Charles","last_name":"Morris","avatar":"https://reqres.in/img/faces/5-image.jpg","clicksReviewed":"1568","monthlyClicks":"3000","isUserActive":false},
     {"id":12,"email":"tracey.ramos@reqres.in","first_name":"Tracey","last_name":"Ramos","avatar":"https://reqres.in/img/faces/6-image.jpg","clicksReviewed":"2000","monthlyClicks":"3000","isUserActive":false}
   ],
-  userProfile: []
+  userProfile: [],
 };
 const userListReducers = (state = initialState, action) => {
   switch (action.type) {
@@ -51,7 +51,7 @@ const userListReducers = (state = initialState, action) => {
             return userDetail;            
           }
         })
-      }
+      }     
     default: return state;
   }
 }
