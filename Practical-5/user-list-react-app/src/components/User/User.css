@@ -13,26 +13,15 @@
   display: flex;
   width: 250px;
 }
-@media screen and (min-width: 851px) {
-  .user-sm-container {
-    display: none;
-  }
+.user-sm-container {
+  flex-direction: column;
+  justify-content: center;
+  width: max-content;
 }
-@media screen and (max-width: 850px) {
-  .user-container {
-    display: none;
-  }
-
-  .user-sm-container {
-    flex-direction: column;
-    justify-content: center;
-    width: max-content;
-  }
-  .other-info {
-    display: flex;
-    justify-content: space-evenly;
-    margin-left: 45px;
-  }
+.other-info {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 45px;
 }
 .user-avatar img {
   height: 40px;
