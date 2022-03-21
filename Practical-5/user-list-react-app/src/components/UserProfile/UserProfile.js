@@ -1,16 +1,16 @@
-import './UserProfile.css'
+import './UserProfile.css';
 
 function UserProfile(props) {
-  const { userProfileData } = props
-  const { user } = userProfileData[0]
-  const { id, first_name, last_name, email, avatar, monthlyClicks, clicksReviewed, isUserActive } = user
-  let usage = clicksReviewed/monthlyClicks*100
+  //const { userProfileData } = props;
+  const { user } = props.userProfileData[0];
+  const { id, first_name, last_name, email, avatar, monthlyClicks, clicksReviewed, isUserActive } = user;
+  let usage = clicksReviewed/monthlyClicks*100;
   return (
     <div className='user-profile-container'>
       <div className='user-profile-avatar'>
         <img src={ avatar } alt='user-profile-avatar'/>
       </div>
-      <div className='name-with-statusIcon'>
+      <div className='name-with-status-icon'>
         <div className='user-profile-name'>{ first_name } { last_name }</div>
         <span className={ id === 1 || isUserActive ? 'active-status-icon' : 'inactive-status-icon' }></span>
       </div>
@@ -38,4 +38,4 @@ function UserProfile(props) {
   )
 }
 
-export default UserProfile
+export default UserProfile;

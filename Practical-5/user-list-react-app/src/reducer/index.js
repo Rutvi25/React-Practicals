@@ -5,4 +5,4 @@ const userListReducers = combineReducers({
   userListReducer
 })
 
-export default userListReducers
+export default userListReducers;

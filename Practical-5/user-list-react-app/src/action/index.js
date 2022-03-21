@@ -24,7 +24,7 @@ export const mouseLeave = (user) => {
 }
 export const changeUserStatus = (id) => {
   return {
-    type: 'CHANGE_STATUS',
+    type: 'CHANGE_USER_STATUS',
     payload: {
       id,
     }

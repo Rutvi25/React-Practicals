@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import UserList from './components/UserList/UserList'
+import UserList from './components/UserList/UserList';
 import UserProfile from './components/UserProfile/UserProfile';
 import './App.css';
 
 function App() {
-  const userProfileData = useSelector((state) => state.userListReducer.userProfile)
+  const userProfileData = useSelector((state) => state.userListReducer.userProfile);
   
   return (
     <div className='App container-fluid'>

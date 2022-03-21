@@ -1,14 +1,14 @@
-import React from 'react'
-import { Lock, Trash2 } from 'react-feather'
-import { useDispatch } from 'react-redux'
+import React from 'react';
+import { Lock, Trash2 } from 'react-feather';
+import { useDispatch } from 'react-redux';
 
-import { changeUserStatus, mouseEnter, mouseLeave, removeUser } from '../../action'
+import { changeUserStatus, mouseEnter, mouseLeave, removeUser } from '../../action';
 
-import './User.css'
+import './User.css';
 
 function User(props) {
-  const { user } = props
-  const { id, email, first_name, last_name, avatar} = user
+  // const { user } = props
+  const { id, email, first_name, last_name, avatar} = props.user
   const dispatch = useDispatch()
   // conditional rendering for owner & user
   let userStatus, userAccess, icon;
@@ -30,10 +30,10 @@ function User(props) {
   }
   // for hovering effect & displaying card data accordingly
   function handleMouseEnter() {
-    dispatch(mouseEnter(user))
+    dispatch(mouseEnter(props.user));
   }
   function handleMouseLeave() {
-    dispatch(mouseLeave(user))
+    dispatch(mouseLeave(props.user));
   }
 
   return (
@@ -85,4 +85,4 @@ function User(props) {
   )
 }
 
-export default User
+export default User;

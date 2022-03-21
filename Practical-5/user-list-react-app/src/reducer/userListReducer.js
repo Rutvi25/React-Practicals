@@ -1,4 +1,4 @@
-const initialData = {
+const initialState = {
   userDetails: [ 
     {"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg","clicksReviewed":"3000","monthlyClicks":"5000","isUserActive":true},
     {"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg","clicksReviewed":"1000","monthlyClicks":"3000","isUserActive":false},
@@ -14,11 +14,12 @@ const initialData = {
     {"id":12,"email":"tracey.ramos@reqres.in","first_name":"Tracey","last_name":"Ramos","avatar":"https://reqres.in/img/faces/6-image.jpg","clicksReviewed":"2000","monthlyClicks":"3000","isUserActive":false}
   ],
   userProfile: []
-}
-const userListReducers = (state = initialData, action) => {
+};
+const userListReducers = (state = initialState, action) => {
   switch (action.type) {
     case 'REMOVE_USER':
       return {
+        ...state,
         userDetails: [...state.userDetails.filter((user) => user.id!== action.payload.id)],
         userProfile: []
       }
@@ -36,7 +37,7 @@ const userListReducers = (state = initialData, action) => {
         ...state,
         userProfile: []
       }
-    case 'CHANGE_STATUS':
+    case 'CHANGE_USER_STATUS':
       return{
         ...state,
         userDetails : state.userDetails.map((userDetail) => {
@@ -51,7 +52,7 @@ const userListReducers = (state = initialData, action) => {
           }
         })
       }
-    default: return state
+    default: return state;
   }
 }
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import EmptyList from '../EmptyList/EmptyList'
-import Title from '../Title/Title'
-import User from '../User/User'
+import EmptyList from '../EmptyList/EmptyList';
+import Title from '../Title/Title';
+import User from '../User/User';
 
 function UserList() {
   const userDetails = useSelector((state) => state.userListReducer.userDetails)
@@ -15,9 +15,7 @@ function UserList() {
     displayList = userDetails?.map((user) => {
       const {id} = user
       return(
-        <User key={ id }
-          user={ user }
-        />        
+        <User key={ id } user={ user } />        
       )
     })
   }
@@ -31,4 +29,4 @@ function UserList() {
   )
 }
 
-export default UserList
+export default UserList;

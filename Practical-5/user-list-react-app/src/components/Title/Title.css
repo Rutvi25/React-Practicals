@@ -1,6 +1,5 @@
 .title {
   display: flex;
-  flex-direction: row;
   font-size: 15px;
   padding: 5px;
   color: rgba(0, 0, 0, 0.645);

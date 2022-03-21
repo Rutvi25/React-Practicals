@@ -19,7 +19,7 @@
   font-size: 20px;
   color: rgba(0, 0, 0, 0.802);
 }
-.name-with-statusIcon {
+.name-with-status-icon {
   display: flex;
   justify-content: center
 }
@@ -78,7 +78,6 @@
 }
 .clicks {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
 }
 .separator {

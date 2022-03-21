@@ -1,5 +1,5 @@
-import React from 'react'
-import './Title.css'
+import React from 'react';
+import './Title.css';
 
 function Title() {
   return (
@@ -11,4 +11,4 @@ function Title() {
   )
 }
 
-export default Title
+export default Title;
