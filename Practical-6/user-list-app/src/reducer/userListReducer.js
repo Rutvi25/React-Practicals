@@ -4,7 +4,8 @@ const initialData = {
   userDetails: [],
   isLoading: false,
   error: '',
-  userProfile: []
+  userProfile: [],
+  pagination: 1,
 }
 const userListReducers = (state = initialData, action) => {
   switch (action.type) {
@@ -60,6 +61,12 @@ const userListReducers = (state = initialData, action) => {
         userDetails: [],
         isLoading: false
       }
+    case 'CHANGE_PAGE':
+      console.log(action.payload.pagination)
+      return {
+        ...state,
+        pagination: action.payload.pagination,
+      };
     default: return state
   }
 }
