@@ -7,12 +7,12 @@ import './App.css';
 
 function App() {
   const userProfileData = useSelector((state) => state.userListReducer.userProfile)
-
+  const userDetails = useSelector((state) => state.userListReducer.userDetails)
   return (
     <div className='App container-fluid'>
       <div className='user-list-main-container'>
         <div className={userProfileData.length === 0 ? 'user-list' : 'user-list user-list-sm'}>
-          <UserList />
+          <UserList userDetails={userDetails}/>
         </div>
         <div className='user-profile'>
           {

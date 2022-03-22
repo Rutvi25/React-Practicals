@@ -1,46 +1,23 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import { requestUsers } from '../../action';
 
-// import data from '../../userDetails.json'
 import EmptyList from '../EmptyList/EmptyList'
 import Title from '../Title/Title'
 import User from '../User/User'
 
-function UserList() {
+function UserList({ userDetails, requestUsers }) {
 
-  // const { isLoading, userDetails } = useSelector((state) => state);
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(() => requestUsers(data));
-  // }, []);
-
-
-  // return (
-  //   <>
-  //     { isLoading && <div>Data Loading ...</div> }
-  //     { userDetails.map((user) => {
-  //       return (
-  //         <div>{user.id}</div>
-  //       )
-  //     })}
-      
-  //   </>
-  // )
-  const {userDetails} = useSelector((state) => state)
-
-  const dispatch = useDispatch();
-  dispatch(requestUsers)
-
-  useEffect(() => dispatch(requestUsers), [dispatch])
+  useEffect(() => {
+    requestUsers()
+  }, [])
 
   let displayList;
-  if({userDetails}.length === 0) {
+  if(userDetails.length === 0) {
     displayList = <EmptyList />
   }
   else {
-    displayList = userDetails?.map((user) => {
+    displayList = userDetails.data.map((user) => {
       const {id} = user
       return(
         <User key={ id }
@@ -50,14 +27,27 @@ function UserList() {
     })
   }
 
-  return (
+  return userDetails.loading ? 
+    ( <h2>Loading</h2> ) : userDetails.error ? 
+    ( <h2>{userDetails.error}</h2> ) : 
     <>
-      { {displayList}.length ? <Title /> : '' }
+      { userDetails.length !==0 ? <Title /> : '' }
       <div className='user-list-container'>
         { displayList }
       </div>
     </>
-  )
 }
 
-export default UserList
+const mapStateToProps = state => {
+  return {
+    userDetails: state.userListReducer.userDetails
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    requestUsers: () => dispatch(requestUsers())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserList)

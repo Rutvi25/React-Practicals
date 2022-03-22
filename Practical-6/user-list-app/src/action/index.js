@@ -1,5 +1,4 @@
 import axios from 'axios';
-// import user from './userDetail'
 
 export const removeUser = (id) => {
   return {
@@ -38,10 +37,10 @@ export const fetchUserRequest = () => {
     type: 'FETCH_USER_REQUEST',
   }
 }
-export const fetchUserSuccess = (data) => {
+export const fetchUserSuccess = (users) => {
   return {
     type: 'FETCH_USER_SUCCESS',
-    payload: data
+    payload: users
   }
 }
 export const fetchUserFailure = (error) => {
@@ -56,32 +55,12 @@ export const requestUsers = () => {
     dispatch(fetchUserRequest);
     axios.get('https://reqres.in/api/users?page=1')
       .then((response) => {
-        const data = response.data
-        // console.log(data)
-        dispatch(fetchUserSuccess(data))
+        const users = response.data
+        dispatch(fetchUserSuccess(users))
       })
       .catch((error) => {
         const errorMsg = error.message
+        dispatch(fetchUserFailure(errorMsg))
       }) 
   }
 }
-// export const requestUsers = (data) => async (dispatch) => {
-//   dispatch({
-//     type: user.LOAD,
-//   });
-//   try {
-//     const json = await axios.get('userDetails.json');
-//     dispatch ({
-//       type: user.LOAD_SUCCESS,
-//       userDetails: json.data,
-//       isError: false
-//     });
-//   }
-//   catch (e) {
-//     dispatch ({
-//       type: user.LOAD_SUCCESS,
-//       userDetails: [],
-//       isError: true,
-//     })
-//   }
-// }
