@@ -1,0 +1,17 @@
+.title {
+  display: flex;
+  font-size: 15px;
+  padding: 5px;
+  color: rgba(0, 0, 0, 0.645);
+  font-weight: 600;
+  justify-content: space-evenly;
+  width: 620px;
+}
+.status {
+  margin-left: 70px;
+}
+@media screen and (max-width: 850px) {
+  .title {
+    display: none;
+  }
+}
