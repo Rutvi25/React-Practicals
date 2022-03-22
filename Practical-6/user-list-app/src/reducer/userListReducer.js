@@ -1,9 +1,9 @@
-import user from '../action/userDetail'
+// import user from '../action/userDetail'
 
 const initialData = {
   userDetails: [],
   isLoading: false,
-  isError: false,
+  error: '',
   userProfile: []
 }
 const userListReducers = (state = initialData, action) => {
@@ -42,19 +42,37 @@ const userListReducers = (state = initialData, action) => {
           }
         })
       }
-    case user.LOAD:
-      return {
-        ...state, 
-        isLoading: true,
-        isError: false
-      };
-    case user.LOAD_SUCCESS:
+    case 'FETCH_USER_REQUEST':
       return {
         ...state,
-        userDetails: action.userDetails,
-        isLoading: false,
+        isLoading: true
+      }
+    case 'FETCH_USER_SUCCESS':
+      return {
+        ...state,
+        userDetails: action.payload
+      }
+    case 'FETCH_USER_FAILURE':
+      return {
+        ...state,
+        error: action.payload,
+        userDetails: [],
+        isLoading: false
       }
     default: return state
+
+    // case user.LOAD:
+    //   return {
+    //     ...state, 
+    //     isLoading: true,
+    //     isError: false
+    //   };
+    // case user.LOAD_SUCCESS:
+    //   return {
+    //     ...state,
+    //     userDetails: action.userDetails,
+    //     isLoading: false,
+    //   }
   }
 }
 
