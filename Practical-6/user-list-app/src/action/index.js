@@ -53,7 +53,7 @@ export const fetchUserFailure = (error) => {
 export const requestUsers = () => {
   return (dispatch) => {
     dispatch(fetchUserRequest);
-    axios.get('https://reqres.in/api/users?page=1')
+    axios.get(`https://reqres.in/api/users?page=1`)
       .then((response) => {
         const users = response.data
         dispatch(fetchUserSuccess(users))

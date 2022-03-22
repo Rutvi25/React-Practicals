@@ -50,7 +50,7 @@ const userListReducers = (state = initialData, action) => {
     case 'FETCH_USER_SUCCESS':
       return {
         ...state,
-        userDetails: action.payload,
+        userDetails: action.payload.data,
         error: ''
       }
     case 'FETCH_USER_FAILURE':
@@ -61,19 +61,6 @@ const userListReducers = (state = initialData, action) => {
         isLoading: false
       }
     default: return state
-
-    // case user.LOAD:
-    //   return {
-    //     ...state, 
-    //     isLoading: true,
-    //     isError: false
-    //   };
-    // case user.LOAD_SUCCESS:
-    //   return {
-    //     ...state,
-    //     userDetails: action.userDetails,
-    //     isLoading: false,
-    //   }
   }
 }
 

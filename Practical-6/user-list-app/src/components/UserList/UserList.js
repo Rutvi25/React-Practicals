@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { requestUsers } from '../../action';
 
-import EmptyList from '../EmptyList/EmptyList'
-import Title from '../Title/Title'
-import User from '../User/User'
+import { requestUsers } from '../../action';
+import EmptyList from '../EmptyList/EmptyList';
+import Title from '../Title/Title';
+import User from '../User/User';
 
 function UserList({ userDetails, requestUsers }) {
 
@@ -17,7 +17,7 @@ function UserList({ userDetails, requestUsers }) {
     displayList = <EmptyList />
   }
   else {
-    displayList = userDetails.data.map((user) => {
+    displayList = userDetails.map((user) => {
       const {id} = user
       return(
         <User key={ id }
@@ -34,7 +34,7 @@ function UserList({ userDetails, requestUsers }) {
       { userDetails.length !==0 ? <Title /> : '' }
       <div className='user-list-container'>
         { displayList }
-      </div>
+      </div>        
     </>
 }
 
