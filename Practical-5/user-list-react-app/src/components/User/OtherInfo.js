@@ -5,9 +5,8 @@ import { useDispatch } from 'react-redux';
 import { changeUserStatus, removeUser } from '../../action';
 import './User.css';
 
-function OtherInfo(props) {
-  // const { user } = props
-  const { id } = props.user
+function OtherInfo({user}) {
+  const { id } = user
   const dispatch = useDispatch()
   // conditional rendering for owner & user
   return (
