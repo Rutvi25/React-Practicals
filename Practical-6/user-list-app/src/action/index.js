@@ -49,19 +49,20 @@ export const fetchUserFailure = (error) => {
     payload: error
   }
 }
-export const handlePagination = (page, data) => {
+export const handlePagination = (pageNumber) => {
   return {
     type: 'CHANGE_PAGE',
     payload: {
-      pagination: page,
+      pagination: pageNumber,
     },
   };
 };
 
-export const requestUsers = (page) => {
+export const requestUsers = (pagination) => {
+  const url = `https://reqres.in/api/users?page=${pagination}`;
   return (dispatch) => {
-    dispatch(fetchUserRequest);
-    axios.get(`https://reqres.in/api/users?page=${page}`)
+    dispatch(fetchUserRequest());
+    axios.get(url)
       .then((response) => {
         const users = response.data
         dispatch(fetchUserSuccess(users))

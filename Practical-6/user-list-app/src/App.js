@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-// import { requestUsers } from './action';
 import UserList from './components/UserList/UserList'
 import UserProfile from './components/UserProfile/UserProfile';
 import './App.css';

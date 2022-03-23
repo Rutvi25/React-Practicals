@@ -1,18 +1,19 @@
 import React, { useEffect } from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Pagination from 'react-bootstrap/Pagination';
 
-import { requestUsers, handlePagination } from '../../action';
+import { handlePagination, requestUsers } from '../../action';
 import EmptyList from '../EmptyList/EmptyList';
 import Title from '../Title/Title';
 import User from '../User/User';
 import './UserList.css'
 
-function UserList({ userDetails, requestUsers }) {
+function UserList({ userDetails }) {
+  const { error, loading, pagination } = useSelector((state) => state.userListReducer)
   const dispatch = useDispatch()
   useEffect(() => {
-    requestUsers()
-  }, [])
+    dispatch(requestUsers(pagination)) 
+  }, [dispatch, pagination])
 
   let displayList;
   if(userDetails.length === 0) {
@@ -29,9 +30,10 @@ function UserList({ userDetails, requestUsers }) {
     })
   }
 
-  return userDetails.loading ? 
-    ( <h2>Loading</h2> ) : userDetails.error ? 
-    ( <h2>{userDetails.error}</h2> ) : 
+  return loading ? 
+    ( <h2>Loading</h2> ) : 
+    error ? 
+    ( <h2>{error}</h2> ) : 
     <>
       { userDetails.length !==0 ? <Title /> : '' }
       <div className='user-list-container'>
@@ -39,23 +41,12 @@ function UserList({ userDetails, requestUsers }) {
       </div> 
       <div className="user-list-pagination">
         <Pagination >
-          <Pagination.Item onClick={() => dispatch(handlePagination(1))}>{1}</Pagination.Item>
-          <Pagination.Item onClick={() => dispatch(handlePagination(2))}>{2}</Pagination.Item>
+          <Pagination.Item className='pagination-item' onClick={() => dispatch(handlePagination(1))}>{1}</Pagination.Item>
+          <Pagination.Item className='pagination-item' onClick={() => dispatch(handlePagination(2))}>{2}</Pagination.Item>
         </Pagination>
-      </div>   
+      </div> 
+      {console.log(pagination)}
     </>
 }
 
-const mapStateToProps = state => {
-  return {
-    userDetails: state.userListReducer.userDetails
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    requestUsers: () => dispatch(requestUsers())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserList)
+export default UserList
