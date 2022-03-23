@@ -23,11 +23,11 @@ function User({user}) {
     <div className={screenSize < 850 ? 'user-sm-container' : 'user-container' } >
       <UserInfo user={user}/>
       {
-        screenSize < 850 ?
-        <div className='other-info'>
-          <OtherInfo user={user} />
-        </div> :
-        <OtherInfo user={user}/>    
+        screenSize < 850 
+        ? <div className='other-info'>
+            <OtherInfo user={user} />
+          </div> 
+        : <OtherInfo user={user}/>    
       }
     </div>
   </>

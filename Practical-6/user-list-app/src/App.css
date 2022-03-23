@@ -1,10 +1,10 @@
-.App {
+.app {
   text-align: center;
   display: flex;
   justify-content: center;
   background-color: rgb(211, 211, 211);
   padding: 25px;
-  min-height: 100vh;
+  min-height: 650px;
 }
 .user-list-main-container {
   background-color: rgb(245, 245, 245);
@@ -14,7 +14,6 @@
   border-radius: 25px;
   box-shadow: 5px 5px 15px -8px;
   display: flex;
-  flex-direction: row;
 }
 .user-list {
   max-width: 620px;
@@ -23,9 +22,6 @@
   width: 200px;
 }
 @media screen and (max-width: 850px) {
-  .user-list-main-container {
-    display: flex;
-  }
   .user-list {
     align-content: center;
     width: 300px;

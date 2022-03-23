@@ -1,19 +1,16 @@
 .user-container {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   padding: 10px;
   width: 620px;
 }
 .user-sm-container {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   padding: 10px;
 }
 .user-info {
   display: flex;
-  flex-direction: row;
   width: 250px;
 }
 @media screen and (min-width: 851px) {
@@ -33,7 +30,6 @@
   }
   .other-info {
     display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
     margin-left: 45px;
   }

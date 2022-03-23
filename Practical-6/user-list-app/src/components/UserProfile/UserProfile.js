@@ -11,7 +11,7 @@ function UserProfile({userProfileData}) {
       <div className='user-profile-avatar'>
         <img src={ avatar } alt='user-profile-avatar'/>
       </div>
-      <div className='name-with-statusIcon'>
+      <div className='name-with-status-icon'>
         <div className='user-profile-name'>{ first_name } { last_name }</div>
         <span className={ id === 1 || isUserActive ? 'active-status-icon' : 'inactive-status-icon' }></span>
       </div>

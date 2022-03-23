@@ -13,9 +13,9 @@ function OtherInfo({user}) {
   <>
     <div className='user-status'>
       { 
-        id === 1 ? 
-          <div className='owner-status'>Active</div> : 
-          <select id="status" name="status" onChange={() => dispatch(changeUserStatus(id))}>
+        id === 1 
+        ? <div className='owner-status'>Active</div> 
+        : <select id="status" name="status" onChange={() => dispatch(changeUserStatus(id))}>
             <option value="Inactive">Inactive</option>
             <option value="Active">Active</option>
           </select>
@@ -23,19 +23,19 @@ function OtherInfo({user}) {
     </div>
     <div className='user-access'>
       {
-        id === 1 ?
-        <div>Owner</div> :
-        <select id="access" name="access">
-          <option value="manager">Manager</option>
-          <option value="read">Read</option>
-        </select>
+        id === 1 
+        ? <div>Owner</div> 
+        : <select id="access" name="access">
+            <option value="manager">Manager</option>
+            <option value="read">Read</option>
+          </select>
       }
     </div>
     <div className='icon'>
       { 
-        id === 1 ?
-        <Lock size={20} onClick={() => alert('Owner can\'t be removed.')}/> :
-        <Trash2 size={20} onClick={() => dispatch(removeUser(id))}/>     
+        id === 1 
+        ? <Lock size={20} onClick={() => alert('Owner can\'t be removed.')}/> 
+        : <Trash2 size={20} onClick={() => dispatch(removeUser(id))}/>     
       }
     </div>
   </>
