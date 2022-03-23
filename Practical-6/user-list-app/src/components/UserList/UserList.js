@@ -45,7 +45,6 @@ function UserList({ userDetails }) {
           <Pagination.Item className='pagination-item' onClick={() => dispatch(handlePagination(2))}>{2}</Pagination.Item>
         </Pagination>
       </div> 
-      {console.log(pagination)}
     </>
 }
 

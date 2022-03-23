@@ -62,7 +62,6 @@ const userListReducers = (state = initialData, action) => {
         isLoading: false
       }
     case 'CHANGE_PAGE':
-      console.log(action.payload.pagination)
       return {
         ...state,
         pagination: action.payload.pagination,
