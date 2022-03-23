@@ -1,8 +1,9 @@
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { createStore, applyMiddleware } from "redux";
-import rootReducer from './reducer';
 import { composeWithDevTools } from 'redux-devtools-extension'
+
+import rootReducer from './reducer';
 
 const store = createStore ( 
   rootReducer,  

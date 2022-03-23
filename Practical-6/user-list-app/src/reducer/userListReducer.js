@@ -1,5 +1,3 @@
-// import user from '../action/userDetail'
-
 const initialData = {
   userDetails: [],
   isLoading: false,

@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import './EmptyList.css'
+import './EmptyList.css';
 
 function EmptyList() {
   return (
@@ -8,4 +8,4 @@ function EmptyList() {
   )
 }
 
-export default EmptyList
+export default EmptyList;

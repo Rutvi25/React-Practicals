@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Lock, Trash2 } from 'react-feather';
 import { useDispatch } from 'react-redux';
 import { mouseEnter, mouseLeave } from '../../action';
 

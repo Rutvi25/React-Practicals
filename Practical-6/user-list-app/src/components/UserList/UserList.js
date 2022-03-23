@@ -6,7 +6,7 @@ import { handlePagination, requestUsers } from '../../action';
 import EmptyList from '../EmptyList/EmptyList';
 import Title from '../Title/Title';
 import User from '../User/User';
-import './UserList.css'
+import './UserList.css';
 
 function UserList({ userDetails }) {
   const { error, loading, pagination } = useSelector((state) => state.userListReducer)

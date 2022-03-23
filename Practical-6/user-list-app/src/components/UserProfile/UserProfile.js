@@ -1,11 +1,11 @@
-import './UserProfile.css'
+import './UserProfile.css';
 
 function UserProfile({userProfileData}) {
   const { user } = userProfileData[0];
   const { id, first_name, last_name, email, avatar, isUserActive } = user;
   let clicksReviewed = Math.floor((Math.random() * 3000) + 1000);
   let monthlyClicks = clicksReviewed+2000;
-  let usage = clicksReviewed/monthlyClicks*100
+  let usage = clicksReviewed/monthlyClicks*100;
   return (
     <div className='user-profile-container'>
       <div className='user-profile-avatar'>
@@ -39,4 +39,4 @@ function UserProfile({userProfileData}) {
   )
 }
 
-export default UserProfile
+export default UserProfile;
