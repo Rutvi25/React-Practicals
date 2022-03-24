@@ -35,7 +35,7 @@ function UserList({ userDetails }) {
   : error 
   ? ( <h2>{error}</h2> ) 
   : <>
-      { userDetails.length !==0 ? <Title /> : '' }
+      { userDetails.length !==0 && <Title /> }
       <div className='user-list-container'>
         { displayList }
       </div> 
