@@ -9,8 +9,8 @@ const userListReducers = (state = initialData, action) => {
   switch (action.type) {
     case 'REMOVE_USER':
       return {
-        userDetails: [...state.userDetails.filter((user) => user.id!== action.payload.id)],
-        userProfile: []
+        ...state,
+        userDetails: state.userDetails.filter((user) => user.id!== action.payload.id)
       }
     case 'MOUSE_ENTER':
       return {

@@ -4,7 +4,7 @@
   justify-content: center;
   background-color: rgb(211, 211, 211);
   padding: 25px;
-  min-height: 500px;
+  min-height: 600px;
 }
 .user-list-main-container {
   background-color: rgb(245, 245, 245);
@@ -14,6 +14,9 @@
   border-radius: 25px;
   box-shadow: 5px 5px 15px -8px;
   display: flex;
+}
+.user-list-container {
+  min-height: 390px;
 }
 .user-list {
   max-width: 620px;
@@ -26,11 +29,15 @@
     align-content: center;
     width: 300px;
   }
+  .user-list-container {
+    min-height: 510px;
+  }
 }
 @media screen and (max-width: 550px) {
   .user-list-main-container {
     display: flex;
     flex-direction: column;
+    min-height: 510px;
   }
   .user-list {
     align-content: center;
@@ -42,5 +49,6 @@
   }
   .user-list-container {
     width: 300px;
+    min-height: 510px;
   }
 }
