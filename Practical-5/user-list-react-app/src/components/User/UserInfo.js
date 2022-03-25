@@ -1,14 +1,12 @@
 import React from 'react';
-// import { Lock, Trash2 } from 'react-feather';
 import { useDispatch } from 'react-redux';
-import { mouseEnter, mouseLeave } from '../../action';
 
+import { mouseEnter, mouseLeave } from '../../action';
 import './User.css';
 
 function UserInfo({user}) {
-  const { email, first_name, last_name, avatar} = user
-  const dispatch = useDispatch()
-
+  const { email, first_name, last_name, avatar } = user;
+  const dispatch = useDispatch();
   // for hovering effect & displaying card data accordingly
   function handleMouseEnter() {
     dispatch(mouseEnter(user));

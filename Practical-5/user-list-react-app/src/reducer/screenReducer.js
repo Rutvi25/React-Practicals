@@ -8,4 +8,4 @@ const screenReducer = (state = {}, action) => {
   }
 };
 
-export default screenReducer
+export default screenReducer;
