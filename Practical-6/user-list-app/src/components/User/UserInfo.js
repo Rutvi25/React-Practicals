@@ -5,8 +5,8 @@ import { mouseEnter, mouseLeave } from '../../action';
 import './User.css';
 
 function UserInfo({user}) {
-  const { email, first_name, last_name, avatar} = user
-  const dispatch = useDispatch()
+  const { email, first_name, last_name, avatar } = user;
+  const dispatch = useDispatch();
 
   // for hovering effect & displaying card data accordingly
   function handleMouseEnter() {
@@ -17,7 +17,6 @@ function UserInfo({user}) {
   }
 
   return (
-  <>
     <div className='user-info' onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }>
       <div className='user-avatar'>
         <img src={ avatar } alt='user-avatar'/>
@@ -27,7 +26,6 @@ function UserInfo({user}) {
         <div className='user-email'>{ email }</div>
       </div>
     </div>  
-  </>
   )
 }
 

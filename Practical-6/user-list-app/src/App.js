@@ -16,7 +16,7 @@ function App() {
         </div>
         <div className='user-profile'>
           {
-            userProfileData.length !==0 && <UserProfile userProfileData={userProfileData}/>
+            userProfileData.length !== 0 && <UserProfile userProfileData={userProfileData}/>
           }
         </div>
       </div>

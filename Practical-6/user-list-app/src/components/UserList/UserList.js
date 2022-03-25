@@ -21,21 +21,21 @@ function UserList({ userDetails }) {
   }
   else {
     displayList = userDetails.map((user) => {
-      const {id} = user
+      const { id } = user
       return(
-        <User key={ id }
-          user={ user }
+        <User 
+          key={id}
+          user={user}
         />        
       )
     })
   }
-
   return loading 
   ? ( <h2>Loading</h2> ) 
   : error 
   ? ( <h2>{error}</h2> ) 
   : <>
-      { userDetails.length !==0 && <Title /> }
+      { userDetails.length !== 0 && <Title /> }
       <div className='user-list-container'>
         { displayList }
       </div> 

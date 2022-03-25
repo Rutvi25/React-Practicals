@@ -16,11 +16,11 @@ function User({user}) {
       window.removeEventListener("resize", onResize);
     };
   }, [dispatch]);
-  const screenSize = useSelector((state) => state.screenReducer.screenWidth)
+  let screenSize = useSelector((state) => state.screenReducer.screenWidth);
+  screenSize = screenSize? screenSize : window.innerWidth;
 
   return (
-  <>
-    <div className={screenSize < 850 ? 'user-sm-container' : 'user-container' } >
+    <div className={screenSize < 850 ? 'user-sm-container' : 'user-container'} >
       <UserInfo user={user}/>
       {
         screenSize < 850 
@@ -30,7 +30,6 @@ function User({user}) {
         : <OtherInfo user={user}/>    
       }
     </div>
-  </>
   )
 }
 

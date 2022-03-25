@@ -6,33 +6,23 @@
 }
 .user-sm-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   padding: 10px;
+  width: max-content;
+}
+.user-sm-container {
+  flex-direction: column;
+  justify-content: center;
 }
 .user-info {
   display: flex;
   width: 250px;
 }
-@media screen and (min-width: 851px) {
-  .user-sm-container {
-    display: none;
-  }
-}
-@media screen and (max-width: 850px) {
-  .user-container {
-    display: none;
-  }
-
-  .user-sm-container {
-    flex-direction: column;
-    justify-content: center;
-    width: max-content;
-  }
-  .other-info {
-    display: flex;
-    justify-content: space-evenly;
-    margin-left: 45px;
-  }
+.other-info {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 45px;
 }
 .user-avatar img {
   height: 40px;
@@ -56,7 +46,7 @@
 .user-email {
   color: rgba(0, 0, 0, 0.487);
 }
-.user-status select, .user-access select{
+.user-status select, .user-access select {
   background-color: rgb(245, 245, 245);
   border: none;
   color: rgba(0, 0, 0, 0.433);

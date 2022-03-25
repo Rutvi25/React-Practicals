@@ -50,5 +50,8 @@
   .user-list-container {
     width: 300px;
     min-height: 510px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
 }
