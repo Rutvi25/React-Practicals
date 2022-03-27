@@ -1,3 +1,10 @@
+import userDetails from '../userDetails.json'
+export const fetchData = () => {
+  return {
+    type: 'FETCH_DATA',
+    payload: userDetails
+  }
+}
 export const removeUser = (id) => {
   return {
     type: 'REMOVE_USER',
