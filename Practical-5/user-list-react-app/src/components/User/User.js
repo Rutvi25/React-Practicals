@@ -5,7 +5,7 @@ import UserInfo from './UserInfo';
 import OtherInfo from './OtherInfo';
 import './User.css';
 
-function User(props) {
+function User({user}) {
   const dispatch = useDispatch();
   useEffect(() => {
     const onResize = () => {
@@ -16,18 +16,19 @@ function User(props) {
       window.removeEventListener("resize", onResize);
     };
   }, [dispatch]);
-  const screenSize = useSelector((state) => state.screenReducer.screenWidth)
+  let screenSize = useSelector((state) => state.screenReducer.screenWidth);
+  screenSize = screenSize ? screenSize : window.innerWidth; 
 
   return (
   <>
     <div className={screenSize < 850 ? 'user-sm-container' : 'user-container' } >
-      <UserInfo user={props.user}/>
+      <UserInfo user={user}/>
       {
-        screenSize < 850 ?
-        <div className='other-info'>
-          <OtherInfo user={props.user} />
-        </div> :
-        <OtherInfo user={props.user}/>    
+        screenSize < 850 
+        ? <div className='other-info'>
+            <OtherInfo user={user} />
+          </div> 
+        : <OtherInfo user={user}/>    
       }
     </div>
   </>

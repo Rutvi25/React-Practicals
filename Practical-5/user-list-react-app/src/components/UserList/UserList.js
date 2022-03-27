@@ -12,15 +12,16 @@ function UserList() {
     dispatch(fetchData());
   }, [dispatch])
   const userDetails = useSelector((state) => state.userListReducer.userDetails)
+
   let displayList;
   if(userDetails.length === 0) {
     displayList = <EmptyList />
   }
   else {
     displayList = userDetails?.map((user) => {
-      const {id} = user
+      const { id } = user;
       return(
-        <User key={ id } user={ user } />        
+        <User key={id} user={user} />        
       )
     })
   }
