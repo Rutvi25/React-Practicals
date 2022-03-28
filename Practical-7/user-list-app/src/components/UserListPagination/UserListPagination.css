@@ -1,0 +1,8 @@
+.user-list-pagination {
+  display: flex;
+  justify-content: center;
+}
+.pagination-item {
+  border: 1px solid rgb(128, 128, 128);
+  border-radius: 2px;
+}
