@@ -15,9 +15,6 @@
   box-shadow: 5px 5px 15px -8px;
   display: flex;
 }
-.user-list-container {
-  min-height: 390px;
-}
 .user-list {
   max-width: 620px;
 }

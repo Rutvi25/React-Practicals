@@ -1,0 +1,36 @@
+.user-list-container {
+  min-height: 390px;
+}
+.title {
+  display: flex;
+  font-size: 15px;
+  padding: 10px;
+  font-weight: 600;
+  justify-content: space-between;
+}
+.name {
+  display: flex;
+  justify-content: center;
+}
+.name, .access, .status {
+  color: rgba(0, 0, 0, 0.645);
+}
+@media screen and (max-width: 850px) {
+  .user-list-container {
+    min-height: 510px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .user-list-container {
+    width: 300px;
+    min-height: 510px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 850px) {
+  .title {
+    display: none;
+  }
+}
