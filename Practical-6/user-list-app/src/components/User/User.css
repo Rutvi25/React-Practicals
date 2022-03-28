@@ -61,6 +61,10 @@
   cursor: pointer;
   width: 75px;
 }
+.user-status select, .user-access select{
+  border: 1px solid;
+  border-radius: 5px;
+} 
 .owner-status {
   color: rgb(96, 162, 96);
   width: 75px;
