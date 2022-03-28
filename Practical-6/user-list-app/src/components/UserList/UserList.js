@@ -8,7 +8,7 @@ import User from '../User/User';
 import UserListPagination from '../UserListPagination/UserListPagination';
 
 function UserList({ userDetails }) {
-  const { error, loading, pagination } = useSelector((state) => state.userListReducer)
+  const { error, isLoading, pagination } = useSelector((state) => state.userListReducer)
   const dispatch = useDispatch()
   // for requesting user details
   useEffect(() => {
@@ -30,8 +30,8 @@ function UserList({ userDetails }) {
       )
     })
   }
-  return loading 
-  ? ( <h2>Loading</h2> ) 
+  return isLoading 
+  ? ( <h2>Loading...</h2> ) 
   : error 
   ? ( <h2>{error}</h2> ) 
   : <>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import UserInfo from './UserInfo';
@@ -7,7 +7,7 @@ import './User.css';
 
 function User({user}) {
   const dispatch = useDispatch();
-  useEffect(() => {
+  useMemo(() => {
     const onResize = () => {
       dispatch({ type: "SCREEN_RESIZE", screenWidth: window.innerWidth });
     };

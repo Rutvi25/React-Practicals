@@ -7,6 +7,7 @@ function Title() {
       <div className='name'>Name</div>
       <div className='status'>Status</div>
       <div className='access'>Access</div>
+      <div className='icon'></div>
     </div>
   )
 }

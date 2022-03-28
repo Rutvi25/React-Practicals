@@ -50,6 +50,7 @@ const userListReducers = (state = initialData, action) => {
       return {
         ...state,
         userDetails: action.payload.data,
+        isLoading: false,
         error: ''
       }
     case 'FETCH_USER_FAILURE':
