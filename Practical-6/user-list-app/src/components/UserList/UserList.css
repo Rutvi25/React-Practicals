@@ -19,6 +19,9 @@
   .user-list-container {
     min-height: 510px;
   }
+  .title {
+    display: none;
+  }
 }
 @media screen and (max-width: 550px) {
   .user-list-container {
@@ -27,10 +30,5 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-  }
-}
-@media screen and (max-width: 850px) {
-  .title {
-    display: none;
   }
 }
