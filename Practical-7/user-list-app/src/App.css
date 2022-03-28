@@ -15,9 +15,6 @@
   box-shadow: 5px 5px 15px -8px;
   display: flex;
 }
-.user-list-container {
-  min-height: 390px;
-}
 .user-list {
   max-width: 620px;
 }
@@ -28,9 +25,6 @@
   .user-list {
     align-content: center;
     width: 300px;
-  }
-  .user-list-container {
-    min-height: 510px;
   }
 }
 @media screen and (max-width: 550px) {
@@ -46,12 +40,5 @@
   }
   .user-list-sm {
     height: 250px;
-  }
-  .user-list-container {
-    width: 300px;
-    min-height: 510px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
   }
 }

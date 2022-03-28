@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { requestUsers } from '../../action';
 import EmptyList from '../EmptyList/EmptyList';
-import Title from '../Title/Title';
 import User from '../User/User';
 import UserListPagination from '../UserListPagination/UserListPagination';
+import './UserList.css'
 
 function UserList({ userDetails }) {
   const { error, isLoading, pagination } = useSelector((state) => state.userListReducer)
@@ -35,7 +35,14 @@ function UserList({ userDetails }) {
   : error 
   ? ( <h2>{error}</h2> ) 
   : <>
-      { userDetails.length !== 0 && <Title /> }
+      { userDetails.length !== 0 && 
+        <div className='title'>
+          <div className='user-info name'>Name</div>
+          <div className='user-status status'>Status</div>
+          <div className='user-access access'>Access</div>
+          <div className='icon'></div>
+        </div> 
+      }
       <div className='user-list-container'>
         { displayList }
       </div> 
