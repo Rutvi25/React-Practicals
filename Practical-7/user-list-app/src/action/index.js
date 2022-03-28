@@ -59,7 +59,7 @@ export const handlePagination = (pageNumber) => {
 };
 
 export const requestUsers = (pagination) => {
-  const url = `https://reqres.in/api/users?page=${pagination}`;
+  const url = `${process.env.REACT_APP_API_URL}?page=${pagination}`;
   return (dispatch) => {
     dispatch(fetchUserRequest());
     axios.get(url)
