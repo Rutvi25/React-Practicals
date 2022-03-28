@@ -16,6 +16,7 @@ function User({user}) {
       window.removeEventListener("resize", onResize);
     };
   }, [dispatch]);
+  // screen size
   let screenSize = useSelector((state) => state.screenReducer.screenWidth);
   screenSize = screenSize? screenSize : window.innerWidth;
 

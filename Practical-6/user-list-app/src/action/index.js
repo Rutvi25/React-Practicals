@@ -57,7 +57,6 @@ export const handlePagination = (pageNumber) => {
     },
   };
 };
-
 export const requestUsers = (pagination) => {
   const url = `https://reqres.in/api/users?page=${pagination}`;
   return (dispatch) => {
