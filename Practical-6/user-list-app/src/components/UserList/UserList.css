@@ -19,6 +19,9 @@
   .user-list-container {
     min-height: 510px;
   }
+  .title {
+    display: none;
+  }
 }
 @media screen and (max-width: 576px) {
   .user-list-container {
@@ -34,3 +37,4 @@
     display: none;
   }
 }
+
