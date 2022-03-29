@@ -49,9 +49,14 @@ const userListReducers = (state = initialData, action) => {
     case 'FETCH_USER_SUCCESS':
       return {
         ...state,
-        userDetails: action.payload.data,
+        userDetails: action.payload.data.map((userDetail) => {
+          return {
+            ...userDetail,
+            isUserActive: false,
+          }
+        }),
         isLoading: false,
-        error: ''
+        error: '',  
       }
     case 'FETCH_USER_FAILURE':
       return {
