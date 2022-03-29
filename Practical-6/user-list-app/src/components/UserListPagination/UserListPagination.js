@@ -1,28 +1,23 @@
 import React from 'react';
-import Pagination from 'react-bootstrap/Pagination';
-import { useDispatch } from 'react-redux';
+import Pagination from "react-js-pagination";
+import { useDispatch, useSelector } from 'react-redux';
 
 import { handlePagination } from '../../action';
 import './UserListPagination.css';
 
 function UserListPagination() {
   const dispatch = useDispatch()
+  let activePage = useSelector((state) => state.userListReducer.pagination)
   return (
     <div className="user-list-pagination">
-      <Pagination count={10}>
-        <Pagination.Item 
-          className='pagination-item' 
-          onClick={() => dispatch(handlePagination(1))}
-        >
-          {1}
-        </Pagination.Item>
-        <Pagination.Item 
-          className='pagination-item' 
-          onClick={() => dispatch(handlePagination(2))}
-        >
-          {2}
-        </Pagination.Item>
-      </Pagination>
+      <div>
+        <Pagination
+          activePage={activePage}
+          itemsCountPerPage={6}
+          totalItemsCount={12}
+          onChange={(pageNumber) => dispatch(handlePagination(pageNumber))}
+        />
+      </div>
     </div> 
   )
 }
