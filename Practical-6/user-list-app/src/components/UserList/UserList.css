@@ -7,10 +7,10 @@
   padding: 10px;
   font-weight: 600;
   justify-content: space-between;
+  text-align: left;
 }
 .name {
   display: flex;
-  justify-content: center;
 }
 .name, .access, .status {
   color: rgba(0, 0, 0, 0.645);
