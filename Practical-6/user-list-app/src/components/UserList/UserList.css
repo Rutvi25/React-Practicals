@@ -15,12 +15,12 @@
 .name, .access, .status {
   color: rgba(0, 0, 0, 0.645);
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 992px) {
   .user-list-container {
     min-height: 510px;
   }
 }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 576px) {
   .user-list-container {
     width: 300px;
     min-height: 510px;
@@ -29,7 +29,7 @@
     flex-direction: column;
   }
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 992px) {
   .title {
     display: none;
   }

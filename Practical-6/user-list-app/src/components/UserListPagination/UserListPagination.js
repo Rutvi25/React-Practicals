@@ -9,7 +9,7 @@ function UserListPagination() {
   const dispatch = useDispatch()
   return (
     <div className="user-list-pagination">
-      <Pagination >
+      <Pagination count={10}>
         <Pagination.Item 
           className='pagination-item' 
           onClick={() => dispatch(handlePagination(1))}

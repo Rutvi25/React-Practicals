@@ -92,13 +92,13 @@
   font-size: 15px;
   color: rgba(0, 0, 0, 0.446);
 }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 576px) {
   .user-profile-container {
     margin-top: 25px;
     margin-left: 10px;
   }
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 992px) {
   .user-profile-container {
     margin-left: 0px;
   }

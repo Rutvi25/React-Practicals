@@ -21,10 +21,10 @@ function User({user}) {
   screenSize = screenSize? screenSize : window.innerWidth;
 
   return (
-    <div className={screenSize < 850 ? 'user-sm-container' : 'user-container'} >
+    <div className={screenSize < 992 ? 'user-sm-container' : 'user-container'} >
       <UserInfo user={user}/>
       {
-        screenSize < 850 
+        screenSize < 992 
         ? <div className='other-info'>
             <OtherInfo user={user} />
           </div> 

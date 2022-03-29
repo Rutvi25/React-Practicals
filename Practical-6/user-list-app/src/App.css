@@ -21,7 +21,7 @@
 .user-profile {
   width: 200px;
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 992px) {
   .user-list {
     align-content: center;
     width: 300px;
@@ -30,7 +30,7 @@
     min-height: 510px;
   }
 }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 576px) {
   .user-list-main-container {
     display: flex;
     flex-direction: column;
