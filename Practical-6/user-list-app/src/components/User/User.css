@@ -26,6 +26,8 @@
 }
 .user-avatar img {
   height: 40px;
+  width: 40px;
+  object-fit: cover;
   border: 1px;
   border-radius: 50%;
 }
