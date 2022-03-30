@@ -61,14 +61,20 @@ export const requestUsers = (pagination) => {
   const url = `https://reqres.in/api/users?page=${pagination}`;
   return (dispatch) => {
     dispatch(fetchUserRequest());
-    axios.get(url)
+    const { CancelToken } = axios;
+    const source = CancelToken.source();
+    axios.get(url, {cancelToken: source.token})
       .then((response) => {
         const users = response.data
         dispatch(fetchUserSuccess(users))
       })
-      .catch((error) => {
-        const errorMsg = error.message
-        dispatch(fetchUserFailure(errorMsg))
-      }) 
+      .catch((thrown) => {
+        if (axios.isCancel(thrown)) {
+          console.log('Request canceled', thrown.message);
+        } else {
+          const errorMsg = thrown.message
+          dispatch(fetchUserFailure(errorMsg))
+        }
+      });
   }
 }

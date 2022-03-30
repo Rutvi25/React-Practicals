@@ -29,7 +29,7 @@ const userListReducers = (state = initialData, action) => {
     case 'CHANGE_STATUS':
       return{
         ...state,
-        userDetails : state.userDetails.map((userDetail) => {
+        userDetails: state.userDetails.map((userDetail) => {
           if(userDetail.id === action.payload.id) {
             return {
               ...userDetail,
