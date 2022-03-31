@@ -15,12 +15,19 @@ function SignUp() {
     onSubmit: values => {
       console.log('Form data: ', values)
     },
+    validate: values => {
+      let errors = {}
+      if (!values.name) {
+        errors.name = 'Required'
+      }
+    }
   })
   return (
     <div className='sign-up-page'>
       <div className='sign-up'>
         <div className='sign-up-title'>Sign Up</div>
-        <form >
+        <form onSubmit={formik.handleSubmit}>
+          <div className='photo-input'>Photo +</div>
           <label htmlFor='name'>Name </label><br />
           <input 
             type={'name'} 
@@ -59,7 +66,7 @@ function SignUp() {
           <br />
           <label htmlFor='confirmPassword'>Confirm Password </label><br />
           <input 
-            type={'confirmPassword'} 
+            type={'password'} 
             id='confirmPassword' 
             name='confirmPassword' 
             onChange={formik.handleChange} 
@@ -72,7 +79,9 @@ function SignUp() {
           </div>
         </form>
       </div>
-      <div className='asset'></div>
+      <div className='asset'>
+        <img src='https://squahr.com/assets/images/authentication/signup.png' alt='sign-up-img' />
+      </div>
     </div>
   )
 }
