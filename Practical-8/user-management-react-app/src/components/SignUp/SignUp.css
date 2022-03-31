@@ -1,0 +1,34 @@
+.sign-up-title {
+  font-size: 40px;
+  font-weight: 500;
+}
+.sign-up input {
+  background-color: rgb(247, 221, 185);
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 25px;
+  width: 20%;
+  margin: 10px;
+}
+.sign-up label {
+  font-size: 20px;
+  margin: 5px;
+  padding: 5px;
+}
+.btn-group {
+  margin: 10px;
+}
+.submit-btn, .reset-btn {
+  width: 70px;
+  height: 35px;
+  margin-right: 15px;
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: rgb(46, 162, 235);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+}
+.reset-btn {
+  background-color: red;
+}
