@@ -1,27 +1,40 @@
 import React from 'react'
 import { useFormik } from 'formik';
 
-import './SignUp.css';    
+import './SignUp.css';  
+
+const initialValues = {
+  name: '',
+  email: '',
+  phoneNumber: '',
+  password: '',
+  confirmPassword: ''
+}
+
+const onSubmit = values => {
+  console.log('Form data: ', values)
+}
+
+const validate = values => {
+  let errors = {}
+  if (!values.name) {
+    errors.name = 'Required'
+  }
+  if(!values.email) {
+    errors.name = 'Required'
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email address';
+  }
+  return errors
+}
 
 function SignUp() {
   const formik = useFormik({
-    initialValues: {
-      name: '',
-      email: '',
-      phoneNumber: '',
-      password: '',
-      confirmPassword: ''
-    },
-    onSubmit: values => {
-      console.log('Form data: ', values)
-    },
-    validate: values => {
-      let errors = {}
-      if (!values.name) {
-        errors.name = 'Required'
-      }
-    }
+    initialValues,
+    validate,
+    onSubmit
   })
+  console.log('formik errors', formik.errors)
   return (
     <div className='sign-up-page'>
       <div className='sign-up'>
@@ -36,6 +49,7 @@ function SignUp() {
             onChange={formik.handleChange} 
             value={formik.values.name} 
           />
+          {formik.errors.name ? <div>{formik.errors.name}</div> : null}
           <br />
           <label htmlFor='email'>Email </label><br />
           <input 
@@ -74,8 +88,8 @@ function SignUp() {
           />
           <br />
           <div className='btn-group'>
-            <button className='submit-btn'>Submit</button>
-            <button className='reset-btn'>Reset</button>
+            <button type={'submit'} className='submit-btn'>Submit</button>
+            <button type={'reset'} className='reset-btn'>Reset</button>
           </div>
         </form>
       </div>
