@@ -2,17 +2,17 @@ import React from 'react';
 import { Lock, Trash2 } from 'react-feather';
 import { useDispatch } from 'react-redux';
 
-import { changeUserStatus, removeUser } from '../../action';
+import { changeUserStatus, removeUser, changeUserAccess } from '../../action';
 import './User.css';
 
 function OtherInfo({user}) {
-  const { id } = user;
+  const { id, userAccess } = user;
   const dispatch = useDispatch();
   // conditional rendering for owner & user
   return (
   <>
     {
-      id === 1
+      userAccess === 'Owner'
       ? <>
           <div className='user-status'>
             <div className='owner-status'>Active</div> 
@@ -32,7 +32,7 @@ function OtherInfo({user}) {
             </select>
           </div>
           <div className='user-access'>
-            <select id="access" name="access">
+            <select id="access" name="access" onChange={() => dispatch(changeUserAccess(id))}>
               <option value="manager">Manager</option>
               <option value="read">Read</option>
             </select>     

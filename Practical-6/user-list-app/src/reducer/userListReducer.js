@@ -33,11 +33,33 @@ const userListReducers = (state = initialData, action) => {
           if(userDetail.id === action.payload.id) {
             return {
               ...userDetail,
-              isUserActive: !userDetail.isUserActive
+              isUserActive: !userDetail.isUserActive,              
             }
           }
           else {
             return userDetail;            
+          }
+        })
+      }
+    case 'CHANGE_ACCESS':
+      return {
+        ...state,
+        userDetails: state.userDetails.map((userDetail) => {
+          if(userDetail.id === action.payload.id) {
+            if(userDetail.userAccess === 'Manager') {
+            return {
+              ...userDetail,
+              userAccess: 'Read'
+            }}
+            else {
+              return {
+                ...userDetail,
+                userAccess: 'Manager'
+              }
+            }
+          }
+          else {
+            return userDetail;
           }
         })
       }
@@ -50,10 +72,20 @@ const userListReducers = (state = initialData, action) => {
       return {
         ...state,
         userDetails: action.payload.data.map((userDetail) => {
-          return {
-            ...userDetail,
-            isUserActive: false,
+          if(userDetail.id === 1) {
+            return {
+              ...userDetail,
+              isUserActive: false,
+              userAccess: 'Owner'
+            }
           }
+          else {
+            return {
+              ...userDetail,
+              isUserActive: false,
+              userAccess: 'Manager'
+            }
+          }   
         }),
         isLoading: false,
         error: '',  

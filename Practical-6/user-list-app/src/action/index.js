@@ -32,6 +32,14 @@ export const changeUserStatus = (id) => {
     }
   }
 }
+export const changeUserAccess = (id) => {
+  return {
+    type: 'CHANGE_ACCESS',
+    payload: {
+      id,
+    }
+  }
+}
 export const fetchUserRequest = () => {
   return {
     type: 'FETCH_USER_REQUEST',

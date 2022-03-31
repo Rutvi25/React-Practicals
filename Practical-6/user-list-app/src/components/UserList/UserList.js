@@ -38,8 +38,8 @@ function UserList({ userDetails }) {
           { userDetails.length !== 0 && 
             <div className='title'>
               <div className='user-info name'>Name</div>
-              <div className='user-status status'>Status</div>
-              <div className='user-access access'>Access</div>
+              <div className='status'>Status</div>
+              <div className='access'>Access</div>
               <div className='icon'></div>
             </div> 
           }

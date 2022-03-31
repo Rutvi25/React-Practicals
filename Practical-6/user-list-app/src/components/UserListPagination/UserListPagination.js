@@ -15,7 +15,7 @@ function UserListPagination() {
           activePage={activePage}
           itemsCountPerPage={6}
           totalItemsCount={12}
-          onChange={(pageNumber) => dispatch(handlePagination(pageNumber))}
+          onChange={(pageNumber) => dispatch(handlePagination(pageNumber),[dispatch])}
         />
       </div>
     </div> 
