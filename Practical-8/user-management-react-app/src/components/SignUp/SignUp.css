@@ -9,15 +9,22 @@
 .asset {
   width: 60%;
 }
-.errors {
-  color: red;
-  padding-left: 15px;
-}
 .photo-input {
   display: flex;
   justify-content: center;
   padding: 10px;
   font-size: 15px;
+}
+.preview-img {
+  border: 1px solid;
+  border-radius: 50%;
+  object-fit: cover;
+  width: 40px;
+  height: 40px;
+}
+.photo-preview {
+  display: flex;
+  justify-content: center;
 }
 .sign-up-title {
   font-size: 45px;
@@ -58,4 +65,5 @@ label {
 .asset img{
   width: 520px;
   padding: 20px;
+  margin-top: 20px;
 }
