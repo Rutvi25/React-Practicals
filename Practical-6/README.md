@@ -1,6 +1,6 @@
 # React-Practicals
 Practical-6
 
-![Screenshot from 2022-03-28 14-54-56](https://user-images.githubusercontent.com/97082690/160368491-455292b8-c375-4185-844f-48a6902f7ada.png)
+![Screenshot from 2022-04-01 09-09-37](https://user-images.githubusercontent.com/97082690/161190810-dddd7e58-9274-4fae-9079-ae178bca6b7b.png)
 
-![Screenshot from 2022-03-28 14-55-13](https://user-images.githubusercontent.com/97082690/160368503-6c9b7681-493d-456e-b7da-d348f05f5050.png)
+![Screenshot from 2022-04-01 09-09-52](https://user-images.githubusercontent.com/97082690/161190814-b3128a11-be39-4d5d-b585-a761c8b17b3c.png)
