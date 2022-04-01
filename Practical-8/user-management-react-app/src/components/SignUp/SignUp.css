@@ -9,6 +9,10 @@
 .asset {
   width: 60%;
 }
+.errors {
+  color: red;
+  padding-left: 15px;
+}
 .photo-input {
   display: flex;
   justify-content: center;
@@ -19,7 +23,7 @@
   font-size: 45px;
   font-weight: 600;
 }
-.sign-up input {
+input {
   background-color: rgb(247, 221, 185);
   border: 1px solid grey;
   border-radius: 5px;
@@ -29,7 +33,7 @@
   font-size: 20px;
   padding-left: 5px;
 }
-.sign-up label {
+label {
   font-size: 15px;
   margin: 10px;
   padding: 5px;
