@@ -1,0 +1,33 @@
+.logout-btn {
+  text-align: right;
+}
+.logout-btn button {
+  margin: 15px 0;
+  background: red;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 15px;
+}
+.registration-detail {
+  font-size: 20px;
+  font-weight: 600;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 15px;
+  line-height: 35px;
+  text-align: center;
+}
+.user-profile {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+.user-profile img {
+  width: 100px;
+  border: 1px solid;
+  border-radius: 50%;
+  padding: 10px;
+}

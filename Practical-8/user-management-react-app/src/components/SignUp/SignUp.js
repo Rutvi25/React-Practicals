@@ -1,8 +1,12 @@
 import React, {useRef} from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import './SignUp.css';  
 import PhotoPreview from '../PhotoPreview';
+import { addUser } from '../../actions';
+import signupsvg from '../SignUp/signupsvg.png';
 
 const initialValues = {
   name: '',
@@ -46,13 +50,27 @@ const validate = values => {
     errors.file = 'Required';
   } else if (values.file.size > 2000000) {
     errors.file = 'file size is greater than 2 MB';
+  } else if (values.file.type !== "image/jpg" && values.file.type !== "image/png") {
+    errors.file = 'only png and jpg files are acceptable';
   }
   return errors;
 }
-const onSubmit = values => {
-  console.log('Form data: ', values)
-}
 function SignUp() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const onSubmit = values => {
+    const { name, email, phoneNumber, password } = values
+    console.log('Form data: ', values);
+    dispatch(
+      addUser({
+        name: name,
+        email: email,
+        phoneNumber: phoneNumber,
+        password: password,
+      })
+    )
+    navigate('/home')
+  }
   const fileRef = useRef(null)
   return (
     <div className='sign-up-page'>
@@ -81,7 +99,7 @@ function SignUp() {
               <br />
               {/* Phone Number field */}
               <label htmlFor='phoneNumber'>Phone number </label><br />
-              <Field className='input1' type={'text'} id='phoneNumber' name='phoneNumber' />
+              <Field className='input' type={'number'} id='phoneNumber' name='phoneNumber' />
               <ErrorMessage name='phoneNumber' />
               <br />
               {/* Password field */}
@@ -104,7 +122,7 @@ function SignUp() {
         </Formik>
       </div>
       <div className='asset'>
-        <img src='https://squahr.com/assets/images/authentication/signup.png' alt='sign-up-img' />
+        <img src={signupsvg} alt='sign-up-img' />
       </div>
     </div>
   )
