@@ -1,10 +1,5 @@
 const initialState = {
-  userDetails: {
-    name: '',
-    email: '',
-    phoneNumber: '',
-    password: '',
-  },
+  userDetails: {},
   signedUp: false
 }
 const userManagementReducer = (state = initialState, action) => {
