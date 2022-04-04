@@ -8,7 +8,7 @@ function PhotoPreview({file}) {
     setPreview(reader.result)
   };
   return (
-    <img className='preview-img' src={preview} alt='preview-img' width='40px'/>
+    <img className='preview-img' src={preview} alt='preview-img' />
   )
 }
 

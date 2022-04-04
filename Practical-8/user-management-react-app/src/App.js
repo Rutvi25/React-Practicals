@@ -7,12 +7,12 @@ import Home from './components/Home';
 
 function App() {
   return (
-    <>
+    <div className='App'>
       <Routes>
         <Route path='/signup' element={<SignUp />} />
         <Route path='/home' element={<Home />} />
       </Routes>
-    </>
+    </div>    
   );
 }
 
