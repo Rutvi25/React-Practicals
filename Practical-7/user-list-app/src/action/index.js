@@ -32,6 +32,14 @@ export const changeUserStatus = (id) => {
     }
   }
 }
+export const changeUserAccess = (id) => {
+  return {
+    type: 'CHANGE_ACCESS',
+    payload: {
+      id,
+    }
+  }
+}
 export const fetchUserRequest = () => {
   return {
     type: 'FETCH_USER_REQUEST',
@@ -57,19 +65,24 @@ export const handlePagination = (pageNumber) => {
     },
   };
 };
-
 export const requestUsers = (pagination) => {
   const url = `${process.env.REACT_APP_API_URL}?page=${pagination}`;
   return (dispatch) => {
     dispatch(fetchUserRequest());
-    axios.get(url)
+    const { CancelToken } = axios;
+    const source = CancelToken.source();
+    axios.get(url, {cancelToken: source.token})
       .then((response) => {
         const users = response.data
         dispatch(fetchUserSuccess(users))
       })
-      .catch((error) => {
-        const errorMsg = error.message
-        dispatch(fetchUserFailure(errorMsg))
-      }) 
+      .catch((thrown) => {
+        if (axios.isCancel(thrown)) {
+          console.log('Request canceled', thrown.message);
+        } else {
+          const errorMsg = thrown.message
+          dispatch(fetchUserFailure(errorMsg));
+        }
+      });
   }
 }

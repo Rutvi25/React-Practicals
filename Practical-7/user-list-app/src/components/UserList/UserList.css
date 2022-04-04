@@ -7,15 +7,20 @@
   padding: 10px;
   font-weight: 600;
   justify-content: space-between;
+  text-align: left;
 }
 .name {
   display: flex;
-  justify-content: center;
 }
 .name, .access, .status {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  cursor: pointer;
+  width: 75px;
   color: rgba(0, 0, 0, 0.645);
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 992px) {
   .user-list-container {
     min-height: 510px;
   }
@@ -23,7 +28,7 @@
     display: none;
   }
 }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 576px) {
   .user-list-container {
     width: 300px;
     min-height: 510px;
@@ -32,3 +37,9 @@
     flex-direction: column;
   }
 }
+@media screen and (max-width: 992px) {
+  .title {
+    display: none;
+  }
+}
+

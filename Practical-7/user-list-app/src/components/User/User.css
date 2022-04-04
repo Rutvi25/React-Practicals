@@ -26,6 +26,8 @@
 }
 .user-avatar img {
   height: 40px;
+  width: 40px;
+  object-fit: cover;
   border: 1px;
   border-radius: 50%;
 }
@@ -54,20 +56,20 @@
 }
 .user-status, .user-access {
   display: flex;
-  justify-content: center;
   align-items: center;
   font-size: 15px;
   color: rgba(0, 0, 0, 0.433);
   cursor: pointer;
   width: 75px;
 }
-.user-access select, .user-status select {
+.user-status select, .user-access select{
   border: 1px solid;
   border-radius: 5px;
-}
+} 
 .owner-status {
   color: rgb(96, 162, 96);
   width: 75px;
+  text-align: left;
 }
 .icon {
   color: rgba(0, 0, 0, 0.487);
