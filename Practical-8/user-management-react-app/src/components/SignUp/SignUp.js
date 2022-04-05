@@ -67,9 +67,6 @@ function SignUp() {
   const navigate = useNavigate();
   const onSubmit = values => {
     const { name, email, phoneNumber, password, fileURL } = values
-    console.log('Form data: ', values);
-    const url = URL.createObjectURL(values.file)
-    console.log(url)
     dispatch(
       addUser({
         name: name,

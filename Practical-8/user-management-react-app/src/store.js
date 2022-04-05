@@ -1,4 +1,3 @@
-//import thunk from 'redux-thunk';
 import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { persistStore, persistReducer } from 'redux-persist';
