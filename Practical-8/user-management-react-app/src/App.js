@@ -11,7 +11,7 @@ function App() {
   const signedUp = useSelector((state) => state.userManagementReducer.signedUp) 
   useEffect(() => {
     signedUp ? navigate('/home') : navigate('/signup');
-  }, [])
+  }, [signedUp, navigate])
   return (
     <div className='App'>
       <Routes>

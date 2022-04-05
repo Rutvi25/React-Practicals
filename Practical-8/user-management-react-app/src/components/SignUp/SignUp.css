@@ -79,6 +79,9 @@ label {
   color: red;
   padding-left: 15px;
 }
+.img-error-msg {
+  text-align: center;
+}
 @media screen and (max-width: 768px) {
   .sign-up-page{
     flex-direction: column;

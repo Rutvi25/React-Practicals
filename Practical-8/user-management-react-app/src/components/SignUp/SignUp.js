@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import './SignUp.css';  
-import PhotoPreview from '../PhotoPreview';
 import { addUser } from '../../actions';
 import signupsvg from '../SignUp/signupsvg.png';
 
@@ -20,9 +19,11 @@ const initialValues = {
 const validate = values => {
   let errors = {}
   // for name
-  if (!values.name) {
+  if (!values.name.trim()) {
     errors.name = 'Required'
-  } else if (values.name.length < 15) {
+  } else if (!/^[a-zA-Z ]*$/i.test(values.name)) {
+    errors.name = 'only alphabetic values are allowed'
+  } else if (values.name.trim().length < 15) {
     errors.name = 'Must be 15 characters or more';
   }
   // for email
@@ -35,18 +36,23 @@ const validate = values => {
   if(!values.phoneNumber) {
     errors.phoneNumber = 'Required';
   } else if(!/^[6-9]\d{9}$/gi.test(values.phoneNumber)) {
-    errors.phoneNumber = 'Only Indian phone number is valid';
+    errors.phoneNumber = 'Enter valid phone number';
   }
   // for password
   if(!values.password) {
     errors.password = 'Required';
-  }
+  } else if (!/^\S*$/i.test(values.password)) {
+    errors.password = 'space not allowed';
+  } else if(values.password.length < 8) {
+    errors.password = 'password should contain atleast 8 characters'
+  } 
   // for confirm password
-  if(!values.confirmPassword) {
+  if(!values.confirmPassword.trim()) {
     errors.confirmPassword = 'Required';
   } else if (values.password !== values.confirmPassword) {
     errors.confirmPassword = 'Please type the same password again!'
   } 
+  // for file input
   if(!values.file) {
     errors.file = 'Required';
   } else if (values.file.size > 2000000) {
@@ -84,48 +90,63 @@ function SignUp() {
           <img src={signupsvg} alt='sign-up-img' />
         </div>
         <div className='sign-up-form'>
-        <Formik initialValues={initialValues} onSubmit={onSubmit} validate={validate}>
-          {({values, setFieldValue}) => (
-            <Form> 
-              {values.file && <div className='photo-preview'><PhotoPreview fileURL={values.fileURL} /></div>}  
-              <input 
-                ref={fileRef} hidden className='photo' 
-                id="file" name="file" type="file" 
-                onChange={(event) => {
-                  setFieldValue("file", event.currentTarget.files[0]); 
-                  setFieldValue('fileURL', URL.createObjectURL(event.currentTarget.files[0]))
-                }} 
-              />
-              <div onClick={() => fileRef.current.click()} className='photo-input'>Photo +</div>
-              <div className='error-msg'><ErrorMessage name='file' /></div>
-              {/* Name field */}
-              <label htmlFor='name'>Name </label><br />
-              <Field className='input' type={'text'} id='name' name='name' />
-              <div className='error-msg'><ErrorMessage name='name' /></div>
-              {/* Email field */}
-              <label htmlFor='email'>Email </label><br />
-              <Field type={'email'} id='email' name='email' />
-              <div className='error-msg'><ErrorMessage name='email' /></div>
-              {/* Phone Number field */}
-              <label htmlFor='phoneNumber'>Phone number </label><br />
-              <Field className='input' type={'number'} id='phoneNumber' name='phoneNumber' />
-              <div className='error-msg'><ErrorMessage name='phoneNumber' /></div>
-              {/* Password field */}
-              <label htmlFor='password'>password </label><br />
-              <Field type={'password'} id='password' name='password' />
-              <div className='error-msg'><ErrorMessage name='password' /></div>
-              {/* Confirm Password field */}
-              <label htmlFor='confirmPassword'>Confirm Password </label><br />
-              <Field type={'password'} id='confirmPassword' name='confirmPassword' />
-              <div className='error-msg'><ErrorMessage name='confirmPassword' /></div>
-              {/* Submit & Reset */}
-              <div className='btn-group'>
-                <button type={'submit'} className='submit-btn'>Submit</button>
-                <button type={'reset'} className='reset-btn'>Reset</button>
-              </div>
-            </Form>
-          )}
-        </Formik>
+          <Formik initialValues={initialValues} onSubmit={onSubmit} validate={validate}>
+            {({values, setFieldValue}) => (
+              <Form> 
+                {
+                  values.file && 
+                  <div className='photo-preview'>
+                    <img className='preview-img' src={values.fileURL} alt='preview-img' />
+                  </div>
+                }  
+                <input 
+                  ref={fileRef} hidden className='photo' 
+                  id="file" name="file" type="file" 
+                  onChange={(e) => {
+                    setFieldValue("file", e.currentTarget.files[0]); 
+                    setFieldValue('fileURL', URL.createObjectURL(e.currentTarget.files[0]))
+                  }} 
+                />
+                <div onClick={() => fileRef.current.click()} className='photo-input'>Photo +</div>
+                <div className='error-msg img-error-msg'>
+                  <ErrorMessage name='file' />
+                </div>
+                {/* Name field */}
+                <label htmlFor='name'>Name </label><br />
+                <Field className='input' type={'text'} id='name' name='name' />
+                <div className='error-msg'>
+                  <ErrorMessage name='name' />
+                </div>
+                {/* Email field */}
+                <label htmlFor='email'>Email </label><br />
+                <Field type={'email'} id='email' name='email' />
+                <div className='error-msg'><ErrorMessage name='email' /></div>
+                {/* Phone Number field */}
+                <label htmlFor='phoneNumber'>Phone number </label><br />
+                <Field className='input' type={'number'} id='phoneNumber' name='phoneNumber' />
+                <div className='error-msg'>
+                  <ErrorMessage name='phoneNumber' />
+                </div>
+                {/* Password field */}
+                <label htmlFor='password'>password </label><br />
+                <Field type={'password'} id='password' name='password' />
+                <div className='error-msg'>
+                  <ErrorMessage name='password' />
+                </div>
+                {/* Confirm Password field */}
+                <label htmlFor='confirmPassword'>Confirm Password </label><br />
+                <Field type={'password'} id='confirmPassword' name='confirmPassword' />
+                <div className='error-msg'>
+                  <ErrorMessage name='confirmPassword' />
+                </div>
+                {/* Submit & Reset */}
+                <div className='btn-group'>
+                  <button type={'submit'} className='submit-btn'>Submit</button>
+                  <button type={'reset'} className='reset-btn'>Reset</button>
+                </div>
+              </Form>
+            )}
+          </Formik>
         </div>
       </div>
       <div className='asset asset-pc'>
