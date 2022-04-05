@@ -14,7 +14,8 @@ const initialValues = {
   phoneNumber: '',
   password: '',
   confirmPassword: '',
-  file: null
+  file: null,
+  fileURL: ''
 }
 const validate = values => {
   let errors = {}
@@ -59,14 +60,17 @@ function SignUp() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const onSubmit = values => {
-    const { name, email, phoneNumber, password } = values
+    const { name, email, phoneNumber, password, fileURL } = values
     console.log('Form data: ', values);
+    const url = URL.createObjectURL(values.file)
+    console.log(url)
     dispatch(
       addUser({
         name: name,
         email: email,
         phoneNumber: phoneNumber,
         password: password,
+        fileURL: fileURL
       })
     )
     navigate('/home')
@@ -76,42 +80,44 @@ function SignUp() {
     <div className='sign-up-page'>
       <div className='sign-up'>
         <div className='sign-up-title'>Sign Up</div>
+        <div className='asset asset-mobile'>
+          <img src={signupsvg} alt='sign-up-img' />
+        </div>
+        <div className='sign-up-form'>
         <Formik initialValues={initialValues} onSubmit={onSubmit} validate={validate}>
           {({values, setFieldValue}) => (
             <Form> 
-              {values.file && <div className='photo-preview'><PhotoPreview file={values.file} /></div>}  
-              <input ref={fileRef} hidden className='photo' id="file" name="file" type="file" onChange={(event) => {
-                  setFieldValue("file", event.currentTarget.files[0]);
+              {values.file && <div className='photo-preview'><PhotoPreview fileURL={values.fileURL} /></div>}  
+              <input 
+                ref={fileRef} hidden className='photo' 
+                id="file" name="file" type="file" 
+                onChange={(event) => {
+                  setFieldValue("file", event.currentTarget.files[0]); 
+                  setFieldValue('fileURL', URL.createObjectURL(event.currentTarget.files[0]))
                 }} 
               />
               <div onClick={() => fileRef.current.click()} className='photo-input'>Photo +</div>
-              <ErrorMessage name='file' />
-              <br/>
+              <div className='error-msg'><ErrorMessage name='file' /></div>
               {/* Name field */}
               <label htmlFor='name'>Name </label><br />
               <Field className='input' type={'text'} id='name' name='name' />
-              <ErrorMessage name='name' />
-              <br />
+              <div className='error-msg'><ErrorMessage name='name' /></div>
               {/* Email field */}
               <label htmlFor='email'>Email </label><br />
               <Field type={'email'} id='email' name='email' />
-              <ErrorMessage name='email' />
-              <br />
+              <div className='error-msg'><ErrorMessage name='email' /></div>
               {/* Phone Number field */}
               <label htmlFor='phoneNumber'>Phone number </label><br />
               <Field className='input' type={'number'} id='phoneNumber' name='phoneNumber' />
-              <ErrorMessage name='phoneNumber' />
-              <br />
+              <div className='error-msg'><ErrorMessage name='phoneNumber' /></div>
               {/* Password field */}
               <label htmlFor='password'>password </label><br />
               <Field type={'password'} id='password' name='password' />
-              <ErrorMessage name='password' />
-              <br />
+              <div className='error-msg'><ErrorMessage name='password' /></div>
               {/* Confirm Password field */}
               <label htmlFor='confirmPassword'>Confirm Password </label><br />
               <Field type={'password'} id='confirmPassword' name='confirmPassword' />
-              <ErrorMessage name='confirmPassword' />
-              <br />
+              <div className='error-msg'><ErrorMessage name='confirmPassword' /></div>
               {/* Submit & Reset */}
               <div className='btn-group'>
                 <button type={'submit'} className='submit-btn'>Submit</button>
@@ -120,8 +126,9 @@ function SignUp() {
             </Form>
           )}
         </Formik>
+        </div>
       </div>
-      <div className='asset'>
+      <div className='asset asset-pc'>
         <img src={signupsvg} alt='sign-up-img' />
       </div>
     </div>

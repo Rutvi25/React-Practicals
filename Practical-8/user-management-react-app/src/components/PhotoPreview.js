@@ -1,14 +1,8 @@
-import React, {useState} from 'react'
+import React from 'react'
 
-function PhotoPreview({file}) {
-  const [preview, setPreview] = useState(null)
-  const reader = new FileReader();
-  reader.readAsDataURL(file)
-  reader.onload = () => {
-    setPreview(reader.result)
-  };
+function PhotoPreview({fileURL}) {
   return (
-    <img className='preview-img' src={preview} alt='preview-img' />
+    <img className='preview-img' src={fileURL} alt='preview-img' />
   )
 }
 
