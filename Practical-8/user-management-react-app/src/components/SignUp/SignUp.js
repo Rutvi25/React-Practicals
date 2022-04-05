@@ -44,7 +44,7 @@ const validate = values => {
   } else if (!/^\S*$/i.test(values.password)) {
     errors.password = 'space not allowed';
   } else if(values.password.length < 8) {
-    errors.password = 'password should contain atleast 8 characters'
+    errors.password = 'atleast 8 characters required'
   } 
   // for confirm password
   if(!values.confirmPassword.trim()) {
