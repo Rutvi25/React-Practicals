@@ -4,10 +4,10 @@ export const addUser = (values) => {
     payload: {
       values
     }
-  }
-}
+  };
+};
 export const logout = () => {
   return {
     type: 'LOGOUT',
-  }
-}
+  };
+};

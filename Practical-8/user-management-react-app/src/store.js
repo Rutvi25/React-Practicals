@@ -9,11 +9,11 @@ const persistConfig = {
   key: 'persist',
   storage
 }
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 const store = createStore ( 
   persistedReducer,
   composeWithDevTools()
-) 
+);
 
 export const persistor = persistStore(store);
 export default store;

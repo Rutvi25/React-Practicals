@@ -8,10 +8,10 @@ import Home from './components/HomePage/Home';
 
 function App() {
   const navigate = useNavigate();
-  const signedUp = useSelector((state) => state.userManagementReducer.signedUp) 
+  const signedUp = useSelector((state) => state.userManagementReducer.signedUp); 
   useEffect(() => {
     signedUp ? navigate('/home') : navigate('/signup');
-  }, [])
+  }, []);
   return (
     <div className='App'>
       <Routes>
@@ -20,6 +20,6 @@ function App() {
       </Routes>
     </div>    
   );
-}
+};
 
 export default App;

@@ -1,7 +1,7 @@
-import React, {useRef} from 'react'
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import React, {useRef} from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 import './SignUp.css';  
 import { addUser } from '../../actions';
@@ -17,51 +17,51 @@ const initialValues = {
   fileURL: ''
 }
 const validate = values => {
-  let errors = {}
+  let errors = {};
   // for name
   if (!values.name.trim()) {
-    errors.name = 'Required'
+    errors.name = 'Required';
   } else if (!/^[a-zA-Z ]*$/i.test(values.name)) {
-    errors.name = 'only alphabetic values are allowed'
+    errors.name = 'only alphabetic values are allowed';
   } else if (values.name.trim().length < 15) {
     errors.name = 'Must be 15 characters or more';
-  }
+  };
   // for email
   if(!values.email) {
-    errors.email = 'Required'
+    errors.email = 'Required';
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
     errors.email = 'Invalid email address';
-  }
+  };
   // for phone number
   if(!values.phoneNumber) {
     errors.phoneNumber = 'Required';
   } else if(!/^[6-9]\d{9}$/gi.test(values.phoneNumber)) {
     errors.phoneNumber = 'Enter valid phone number';
-  }
+  };
   // for password
   if(!values.password) {
     errors.password = 'Required';
   } else if (!/^\S*$/i.test(values.password)) {
     errors.password = 'space not allowed';
   } else if(values.password.length < 8) {
-    errors.password = 'atleast 8 characters required'
-  } 
+    errors.password = 'atleast 8 characters required';
+  };
   // for confirm password
   if(!values.confirmPassword.trim()) {
     errors.confirmPassword = 'Required';
   } else if (values.password !== values.confirmPassword) {
     errors.confirmPassword = 'Please type the same password again!'
-  } 
+  };
   // for file input
   if(!values.file) {
     errors.file = 'Required';
   } else if (values.file.size > 2000000) {
-    errors.file = 'file size is greater than 2 MB';
-  } else if (values.file.type !== "image/jpg" && values.file.type !== "image/png") {
+    errors.file = 'file size must be less than 2 MB';
+  } else if (values.file.type !== "image/jpg" && values.file.type !== "image/png" && values.file.type !== "image/jpeg" ) {
     errors.file = 'only png and jpg files are acceptable';
-  }
+  };
   return errors;
-}
+};
 function SignUp() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -76,9 +76,9 @@ function SignUp() {
         fileURL: fileURL
       })
     )
-    navigate('/home')
+    navigate('/home');
   }
-  const fileRef = useRef(null)
+  const fileRef = useRef(null);
   return (
     <div className='sign-up-page'>
       <div className='sign-up'>
@@ -150,7 +150,7 @@ function SignUp() {
         <img src={signupsvg} alt='sign-up-img' />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SignUp
+export default SignUp;

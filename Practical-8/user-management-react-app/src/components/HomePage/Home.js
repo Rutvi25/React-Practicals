@@ -10,7 +10,6 @@ function Home() {
   const dispatch = useDispatch()
   function handleLogout() {
     dispatch(logout()); 
-    navigate('/signup')
   }
   const userDetails = useSelector((state) => state.userManagementReducer.userDetails)
   const {name, email, phoneNumber, fileURL} = userDetails.values
