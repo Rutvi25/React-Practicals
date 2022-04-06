@@ -39,7 +39,7 @@
 }
 input {
   background-color: rgb(247, 221, 185);
-  border: 1px solid grey;
+  border: 1px solid rgb(128, 128, 128);
   border-radius: 5px;
   height: 35px;
   margin: 15px;
@@ -62,12 +62,12 @@ label {
   border: 1px solid;
   border-radius: 8px;
   background-color: rgb(46, 162, 235);
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 15px;
   font-weight: 600;
 }
 .reset-btn {
-  background-color: red;
+  background-color: rgb(255, 0, 0);
 }
 .asset img{
   padding-left: 15px;
@@ -77,7 +77,7 @@ label {
   display: hidden;
 }
 .error-msg {
-  color: red;
+  color: rgb(255, 0, 0);
   padding-left: 15px;
 }
 .img-error-msg {
