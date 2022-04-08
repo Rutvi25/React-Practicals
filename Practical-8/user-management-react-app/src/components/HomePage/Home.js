@@ -6,14 +6,14 @@ import { logout } from '../../actions';
 import './Home.css';
 
 function Home() {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const userDetails = useSelector((state) => state.userManagementReducer.userDetails);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   function handleLogout() {
     dispatch(logout()); 
     navigate('/signup');
   }
-  const userDetails = useSelector((state) => state.userManagementReducer.userDetails)
-  const {name, email, phoneNumber, fileURL} = userDetails.values
+  const {name, email, phoneNumber, fileURL} = userDetails.values;
   return (
     <div className='home-page'>
       <div className='logout-btn'>
@@ -28,7 +28,7 @@ function Home() {
         <br/> email id - {email} and phone number - {phoneNumber} 
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Home

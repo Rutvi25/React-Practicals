@@ -65,8 +65,9 @@ const validate = values => {
 function SignUp() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const fileRef = useRef(null);
   const onSubmit = values => {
-    const { name, email, phoneNumber, password, fileURL } = values
+    const { name, email, phoneNumber, password, fileURL } = values;
     dispatch(
       addUser({
         name: name,
@@ -75,10 +76,9 @@ function SignUp() {
         password: password,
         fileURL: fileURL
       })
-    )
+    );
     navigate('/home');
   }
-  const fileRef = useRef(null);
   return (
     <div className='sign-up-page'>
       <div className='sign-up'>
