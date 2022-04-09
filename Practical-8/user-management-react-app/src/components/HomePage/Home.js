@@ -11,7 +11,7 @@ function Home() {
   const dispatch = useDispatch();
   function handleLogout() {
     dispatch(logout()); 
-    navigate('/signup');
+    navigate('/');
   }
   const {name, email, phoneNumber, fileURL} = userDetails.values;
   return (
