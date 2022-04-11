@@ -3,6 +3,7 @@ import * as yup from 'yup';
 export const validation = () => {
   return yup.object({
     name: yup.string()
+      .trim()
       .required('required')
       .min(15, 'name must contain atleast 15 characters'),
     email: yup.string().email('enter valid email address')
@@ -11,6 +12,7 @@ export const validation = () => {
       .required('required')
       .matches(/^[6-9]\d{9}$/, 'only indian mobile number is valid'),
     password: yup.string()
+      .trim()
       .required('required')
       .matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
       'Password must contain 8 characters, including  atleast one lower & upper case character, one number and one special character'),
