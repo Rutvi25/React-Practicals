@@ -6,6 +6,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import './SignUp.css';  
 import { addUser } from '../../actions';
 import signupsvg from '../SignUp/signupsvg.png';
+import { validation } from '../../validation/Validation';
 
 const initialValues = {
   name: '',
@@ -16,54 +17,7 @@ const initialValues = {
   file: null,
   fileURL: ''
 }
-const validate = values => {
-  let errors = {};
-  // for name
-  if (!values.name.trim()) {
-    errors.name = 'Required';
-  } else if (!/^[a-zA-Z ]*$/i.test(values.name)) {
-    errors.name = 'only alphabetic values are allowed';
-  } else if (values.name.trim().length < 15) {
-    errors.name = 'Must be 15 characters or more';
-  };
-  // for email
-  if(!values.email) {
-    errors.email = 'Required';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'Invalid email address';
-  };
-  // for phone number
-  if(!values.phoneNumber) {
-    errors.phoneNumber = 'Required';
-  } else if(!/^[6-9]\d{9}$/gi.test(values.phoneNumber)) {
-    errors.phoneNumber = 'Enter valid phone number';
-  };
-  // for password
-  if(!values.password) {
-    errors.password = 'Required';
-  } else if (!/^\S*$/i.test(values.password)) {
-    errors.password = 'space not allowed';
-  } else if (!/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(values.password)) {
-    errors.password = 
-    'password must contain 8 characters, atleast one lower & upper case character, one number and one special character';
-  };
-  // for confirm password
-  if(!values.confirmPassword.trim()) {
-    errors.confirmPassword = 'Required';
-  } else if (values.password !== values.confirmPassword) {
-    errors.confirmPassword = 'Please type the same password again!'
-  };
-  // for file input
-  if(!values.file) {
-    errors.file = 'Required';
-  } else if (values.file.size > 2000000) {
-    errors.file = 'file size must be less than 2 MB';
-  } else if (values.file.type !== "image/jpg" 
-    && values.file.type !== "image/png" && values.file.type !== "image/jpeg" ) {
-    errors.file = 'only png and jpg files are acceptable';
-  };
-  return errors;
-};
+
 function SignUp() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -89,7 +43,7 @@ function SignUp() {
           <img src={signupsvg} alt='sign-up-img' />
         </div>
         <div className='sign-up-form'>
-          <Formik initialValues={initialValues} onSubmit={onSubmit} validate={validate}>
+          <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validation}>
             {({values, setFieldValue}) => (
               <Form> 
                 {
