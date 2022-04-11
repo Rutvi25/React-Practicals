@@ -15,7 +15,7 @@ function Welcome() {
           </div>          
       : <div>
           <h2>Hello User!</h2>
-          <Link to="/signup">Go to sign in page</Link>
+          <Link to="/signup">Go to sign up page</Link>
         </div>
       }
     </div>
