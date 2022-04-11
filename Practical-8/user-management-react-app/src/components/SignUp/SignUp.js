@@ -43,10 +43,9 @@ const validate = values => {
     errors.password = 'Required';
   } else if (!/^\S*$/i.test(values.password)) {
     errors.password = 'space not allowed';
-  } else if(values.password.length < 8) {
-    errors.password = 'atleast 8 characters required';
-  } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/i.test(values.password)) {
-    errors.password = 'password must contain atleast one lower & upper case character, one number and one special character';
+  } else if (!/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/i.test(values.password)) {
+    errors.password = 
+    'password must contain 8 characters, atleast one lower & upper case character, one number and one special character';
   };
   // for confirm password
   if(!values.confirmPassword.trim()) {
@@ -59,7 +58,8 @@ const validate = values => {
     errors.file = 'Required';
   } else if (values.file.size > 2000000) {
     errors.file = 'file size must be less than 2 MB';
-  } else if (values.file.type !== "image/jpg" && values.file.type !== "image/png" && values.file.type !== "image/jpeg" ) {
+  } else if (values.file.type !== "image/jpg" 
+    && values.file.type !== "image/png" && values.file.type !== "image/jpeg" ) {
     errors.file = 'only png and jpg files are acceptable';
   };
   return errors;
