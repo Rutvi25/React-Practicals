@@ -43,7 +43,7 @@ const validate = values => {
     errors.password = 'Required';
   } else if (!/^\S*$/i.test(values.password)) {
     errors.password = 'space not allowed';
-  } else if (!/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/i.test(values.password)) {
+  } else if (!/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(values.password)) {
     errors.password = 
     'password must contain 8 characters, atleast one lower & upper case character, one number and one special character';
   };
